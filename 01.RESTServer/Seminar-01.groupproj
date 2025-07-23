@@ -1,0 +1,120 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{86B66FAF-B0C2-4C8A-8284-E36E81F991A3}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="src\00.RAW\RawServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\01.BasicServer\BasicServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\02.MiddleWare\01.JSON\Middlware01.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\02.MiddleWare\02.BasicAuth\Middlware02.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\02.MiddleWare\03.CORS\Middlware03.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\02.MiddleWare\04.Stream\Middlware04.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\03.Database\DBServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\04.Client\RestClient.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RawServer">
+        <MSBuild Projects="src\00.RAW\RawServer.dproj"/>
+    </Target>
+    <Target Name="RawServer:Clean">
+        <MSBuild Projects="src\00.RAW\RawServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RawServer:Make">
+        <MSBuild Projects="src\00.RAW\RawServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BasicServer">
+        <MSBuild Projects="src\01.BasicServer\BasicServer.dproj"/>
+    </Target>
+    <Target Name="BasicServer:Clean">
+        <MSBuild Projects="src\01.BasicServer\BasicServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BasicServer:Make">
+        <MSBuild Projects="src\01.BasicServer\BasicServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Middlware01">
+        <MSBuild Projects="src\02.MiddleWare\01.JSON\Middlware01.dproj"/>
+    </Target>
+    <Target Name="Middlware01:Clean">
+        <MSBuild Projects="src\02.MiddleWare\01.JSON\Middlware01.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Middlware01:Make">
+        <MSBuild Projects="src\02.MiddleWare\01.JSON\Middlware01.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Middlware02">
+        <MSBuild Projects="src\02.MiddleWare\02.BasicAuth\Middlware02.dproj"/>
+    </Target>
+    <Target Name="Middlware02:Clean">
+        <MSBuild Projects="src\02.MiddleWare\02.BasicAuth\Middlware02.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Middlware02:Make">
+        <MSBuild Projects="src\02.MiddleWare\02.BasicAuth\Middlware02.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Middlware03">
+        <MSBuild Projects="src\02.MiddleWare\03.CORS\Middlware03.dproj"/>
+    </Target>
+    <Target Name="Middlware03:Clean">
+        <MSBuild Projects="src\02.MiddleWare\03.CORS\Middlware03.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Middlware03:Make">
+        <MSBuild Projects="src\02.MiddleWare\03.CORS\Middlware03.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Middlware04">
+        <MSBuild Projects="src\02.MiddleWare\04.Stream\Middlware04.dproj"/>
+    </Target>
+    <Target Name="Middlware04:Clean">
+        <MSBuild Projects="src\02.MiddleWare\04.Stream\Middlware04.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Middlware04:Make">
+        <MSBuild Projects="src\02.MiddleWare\04.Stream\Middlware04.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DBServer">
+        <MSBuild Projects="src\03.Database\DBServer.dproj"/>
+    </Target>
+    <Target Name="DBServer:Clean">
+        <MSBuild Projects="src\03.Database\DBServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DBServer:Make">
+        <MSBuild Projects="src\03.Database\DBServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RestClient">
+        <MSBuild Projects="src\04.Client\RestClient.dproj"/>
+    </Target>
+    <Target Name="RestClient:Clean">
+        <MSBuild Projects="src\04.Client\RestClient.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RestClient:Make">
+        <MSBuild Projects="src\04.Client\RestClient.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RawServer;BasicServer;Middlware01;Middlware02;Middlware03;Middlware04;DBServer;RestClient"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RawServer:Clean;BasicServer:Clean;Middlware01:Clean;Middlware02:Clean;Middlware03:Clean;Middlware04:Clean;DBServer:Clean;RestClient:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RawServer:Make;BasicServer:Make;Middlware01:Make;Middlware02:Make;Middlware03:Make;Middlware04:Make;DBServer:Make;RestClient:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

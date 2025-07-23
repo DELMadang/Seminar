@@ -1,0 +1,899 @@
+<!DOCTYPE html><html><head>
+      <title>Seminar_20250723</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\civilian\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      <script type="text/javascript" src="file:///c:\Users\civilian\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h2 id="델파이-horse를-활용한-rest-서버-구현-세미나">델파이 Horse를 활용한 REST 서버 구현 세미나 </h2>
+<h3 id="0-세미나-개요"><strong>0. 세미나 개요</strong> </h3>
+<h4 id="01-개요">0.1 개요 </h4>
+<p><strong>총 소요시간</strong>: 2시간 (120분)<br>
+<strong>대상</strong>: 델파이 개발 경험이 있는 개발자<br>
+<strong>목표</strong>: Horse 프레임워크를 사용하여 실무에서 활용 가능한 REST API 서버 구축</p>
+<h4 id="02-필요한-사전-준비사항">0.2 필요한 사전 준비사항 </h4>
+<ul>
+<li>데이터베이스: <a href="https://mariadb.org/download/">MariaDB</a></li>
+<li>쿼리 브라우저: <a href="https://dbeaver.io/download/">DBEaver</a></li>
+</ul>
+<h4 id="03-개발-도구">0.3 개발 도구 </h4>
+<ul>
+<li>Delphi XE8 이상</li>
+</ul>
+<h3 id="1-rest-api-개요"><strong>1. REST API 개요</strong> </h3>
+<h4 id="11-rest-api란">1.1 REST API란? </h4>
+<p><strong>REST API</strong>는 웹에서 데이터를 주고받기 위한 표준 규칙입니다.<br>
+마치 레스토랑의 메뉴판처럼, 클라이언트가 서버에게 "이런 데이터를 달라" 또는 "이런 작업을 해달라"고 요청하는 방식을 정의하며, 통신 프로토콜은 HTTP/HTTPS를 데이터는 JSON을 사용합니다.</p>
+<blockquote>
+<p><strong>REST</strong> = <strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer(표현 상태 전이)</p>
+</blockquote>
+<h4 id="12-rest-api의-핵심-구조">1.2 REST API의 핵심 구조 </h4>
+<p>HTTP 메소드 + URL = 작업 정의</p>
+<table>
+  <tbody><tr><th width="400px">요청</th>
+  <th width="200px">의미</th>
+  </tr><tr>
+    <td><b>GET</b> /users</td>
+    <td>사용자 목록 조회</td>
+  </tr>
+  <tr>
+    <td>GET /users/123</td>
+    <td>123번 사용자 조회</td>
+  </tr>
+  <tr>
+    <td>POST /users</td>
+    <td>새 사용자 생성</td>
+  </tr>
+  <tr>
+    <td>PUTT /user/123</td>
+    <td>123번 사용자 수정</td>
+  </tr>
+  <tr>
+    <td>DELETE /user/123</td>
+    <td>123번 사용자 삭제</td>
+  </tr>
+</tbody></table>
+<h4 id="13-rest-api의-5가지-핵심-원칙">1.3 REST API의 5가지 핵심 원칙 </h4>
+<h5 id="131-리소스-중심-설계">1.3.1 리소스 중심 설계 </h5>
+<p>HTTP 메소드는 동사로, URL은 명사로 표현한다</p>
+<table>
+  <tbody><tr><th width="400px">요청</th>
+  <th width="200px">비고</th>
+  </tr><tr>
+    <td>GET /books/123</td>
+    <td>좋은 예</td>
+  </tr>
+  <tr>
+    <td>GET /getBook/123</td>
+    <td>나쁜 예</td>
+  </tr>
+</tbody></table>
+<h5 id="132-무상태stateless">1.3.2 무상태(Stateless) </h5>
+<p>서버는 이전 요청을 기억하지 않음. 매 요청마다 필요한 모든 정보 포함해야 한다</p>
+<blockquote>
+<p>매번 인증 토큰 포함<br>
+GET /api/users<br>
+Authorization: Bearer abc123token</p>
+</blockquote>
+<h5 id="133-표준-http-메소드-사용">1.3.3 표준 HTTP 메소드 사용 </h5>
+<table>
+  <tbody><tr><th width="400px">메소드</th>
+  <th width="200px">의미</th>
+  </tr><tr>
+    <td>GET</td>
+    <td>조회</td>
+  </tr>
+  <tr>
+    <td>POST</td>
+    <td>생성</td>
+  </tr>
+  <tr>
+    <td>PUT</td>
+    <td>수정</td>
+  </tr>
+  <tr>
+    <td>DELETE</td>
+    <td>삭제</td>
+  </tr>
+</tbody></table>
+<h5 id="134-계층화된-구조">1.3.4 계층화된 구조 </h5>
+<p>클라이언트는 서버의 내부 구조를 몰라도 됨</p>
+<div class="mermaid">flowchart TD
+    %% 클라이언트 계층
+    A1[🖥️ 웹 브라우저] --&gt; B[🚪 API Gateway]
+    A2[📱 모바일 앱] --&gt; B
+    A3[💻 데스크톱 앱] --&gt; B
+    
+    %% API Gateway
+    B --&gt; |인증/권한 확인&lt;br/&gt;요청 검증&lt;br/&gt;로깅| C[⚖️ 로드밸런서 ]
+    
+    %% 로드밸런서에서 서버들로 분산
+    C --&gt; |트래픽 분산| D1[🖥️ 서버 1]
+    C --&gt; |트래픽 분산| D2[🖥️ 서버 2]
+    C --&gt; |트래픽 분산| D3[🖥️ 서버 3]
+    
+    %% 서버들이 데이터베이스에 접근
+    D1 --&gt; E[🗄️ 데이터베이스&lt;br/&gt;RDBMS or NoSQL ]
+    D2 --&gt; E
+    D3 --&gt; E
+    
+    %% 스타일 정의
+    classDef client fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    classDef gateway fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef loadbalancer fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef server fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
+    classDef database fill:#ffebee,stroke:#d32f2f,stroke-width:2px
+    
+    class A1,A2,A3 client
+    class B gateway
+    class C loadbalancer
+    class D1,D2,D3 server
+    class E database
+</div><h5 id="135-캐시-가능">1.3.5 캐시 가능 </h5>
+<p>GET 요청 결과는 캐시하여 성능 향상</p>
+<blockquote>
+<p>Cache-Control: max-age=3600<br>
+ETag: "abc123"</p>
+</blockquote>
+<h3 id="2-horse-프레임워크-소개"><strong>2. HORSE 프레임워크 소개</strong> </h3>
+<h4 id="21-horse-프레임워크-특징">2.1 Horse 프레임워크 특징 </h4>
+<h5 id="211-경량화와-고성능">2.1.1 경량화와 고성능 </h5>
+<ul>
+<li>네이티브 컴파일</li>
+<li>메모리 효율 (매우 적은 메모리만 사용한다)</li>
+<li>빠른 실행 속도</li>
+<li>경량화된 웹 프레임워크</li>
+<li>간단한 라우팅 시스템</li>
+</ul>
+<h5 id="212-간단하고-직관적인-문법">2.1.2 간단하고 직관적인 문법 </h5>
+<ul>
+<li>학습 곡선이 낮음</li>
+<li>Node의 Express와 유사</li>
+<li>가독성이 좋음.</li>
+</ul>
+<h5 id="213-다양하고-강력한-미들웨어-시스템">2.1.3 다양하고 강력한 미들웨어 시스템 </h5>
+<ul>
+<li>모듈화: 기능별로 미들웨어 분리</li>
+<li>재사용성: 다른 프로젝트에서도 동일한 미들웨어 사용</li>
+<li>확장성: 필요한 미들웨어만 추가/제거 가능</li>
+</ul>
+<h5 id="214-다양한-os-지원">2.1.4 다양한 OS 지원 </h5>
+<ul>
+<li>Windows</li>
+<li>Linux</li>
+<li>macOS</li>
+</ul>
+<h5 id="215-델파이-생태계와의-통합">2.1.5 델파이 생태계와의 통합 </h5>
+<ul>
+<li>기존 델파이 라이브러리를 사용할 수 있다</li>
+<li>FireDAC, UniDAC 등 다양한 데이터베이스 드라이버를 사용할 수 있다</li>
+</ul>
+<h5 id="216-간편한-배포와-운영">2.1.6 간편한 배포와 운영 </h5>
+<ul>
+<li>단일 실행파일로 배포와 운영이 편리 (런타임 불필요)</li>
+<li>도커로 배포 가능</li>
+<li>클라우드에 배포 가능</li>
+</ul>
+<h5 id="217-다른-프레임워크들">2.1.7 다른 프레임워크들 </h5>
+<ul>
+<li>MARS<br>
+<a href="https://github.com/andrea-magni/MARS">https://github.com/andrea-magni/MARS</a></li>
+<li>WiRL<br>
+<a href="https://github.com/delphi-blocks/WiRL">https://github.com/delphi-blocks/WiRL</a><br>
+MARS와 WiRL은 같은 뿌리에서 나온 것으로 보이는데 MARS가 구현된 것이 조금 더 많지만, WiRL이 코드는 훨씬 정갈하다.</li>
+<li>DataSnap 또는 WebBroker<br>
+델파이에서 기본으로 제공한다. 12.2에서는 웹스텐실을 사용해서 템플릿을 쉽게 만들 수 있다.</li>
+<li>DelphiMVCFramework<br>
+<a href="https://github.com/danieleteti/delphimvcframework">https://github.com/danieleteti/delphimvcframework</a><br>
+가장 업데이트가 활발하다. 소스코드 정돈이 잘 안된점은 아쉽다.</li>
+<li>TMS WebCore<br>
+<a href="https://www.tmssoftware.com/site/tmswebcore.asp">https://www.tmssoftware.com/site/tmswebcore.asp</a><br>
+델파이 Form을 웹으로 전환해주는 등의 기능이 있다. 유료</li>
+<li>Intraweb<br>
+<a href="https://www.atozed.com/intraweb/">https://www.atozed.com/intraweb/</a><br>
+가장 오래된 솔루션. 유료.</li>
+<li>UniGUI<br>
+<a href="https://www.unigui.com/">https://www.unigui.com/</a><br>
+유료</li>
+<li>D2Bridge<br>
+<a href="https://www.d2bridge.com.br/#">https://www.d2bridge.com.br/#</a><br>
+델파이 Form을 웹으로 전환해주는 등의 기능이 있다. 오픈소스<br>
+​<br>
+다양한 프레임워크가 존재하니 한번쯤 검토해보는 것도 좋을 듯 하다.</li>
+</ul>
+<h4 id="22-소스코드-다운로드">2.2 소스코드 다운로드 </h4>
+<p>델마당 공식 리포지토리에서 클론한다<br>
+<a href="https://github.com/DELMadang/01.RESTServer">델마당 세미나 리포지토리</a></p>
+<p>클론 후 폴더의 구성은 다음과 같다.</p>
+<pre data-role="codeBlock" data-info="console" class="language-console console"><code>01.RESTServer/
+  ├── bin                     // 실행 파일이 생성되는 곳
+  ├── database
+  │   └── schema.sql          // MariaDB용 스키마
+  ├── docs
+  │   └── RestAPI.md          // 현재 보고 있는 문서
+  ├── lib
+  │   ├── Horse               // Horse 엔진 유닛들
+  │   └── MiddleWare          // 미들웨어 유닛들
+  └── src
+      ├── 00.Raw              // Indy를 사용한 서버
+      ├── 01.Basic            // 기본 서버
+      ├── 02.MiddleWare       // 미들웨어 적용한 서버
+      ├── 03.Database         // 데이터베이스 연동 서버
+      ├── 04.Client           // 클라이언트
+      └── 99.NodeJS           // NodeJS 
+</code></pre><h4 id="23-indy를-사용하여-구현하기">2.3 Indy를 사용하여 구현하기 </h4>
+<p>프레임워크의 도움없이 서버를 구현해 보면서, 프레임워크의 필요성에 대해 알아본다</p>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-constructor">constructor</span> TfrmMain<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>AOwner<span class="token punctuation">:</span> TComponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-begin">begin</span>
+  <span class="token keyword keyword-inherited">inherited</span><span class="token punctuation">;</span>
+
+  FServer <span class="token operator">:=</span> TIdHttpServer<span class="token punctuation">.</span>Create<span class="token punctuation">(</span><span class="token keyword keyword-Self">Self</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-destructor">destructor</span> TfrmMain<span class="token punctuation">.</span>Destroy<span class="token punctuation">;</span>
+<span class="token keyword keyword-begin">begin</span>
+  FServer<span class="token punctuation">.</span>Active <span class="token operator">:=</span> <span class="token keyword keyword-False">False</span><span class="token punctuation">;</span>
+  FServer<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+
+  <span class="token keyword keyword-inherited">inherited</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-procedure">procedure</span> TfrmMain<span class="token punctuation">.</span>btnExecuteClick<span class="token punctuation">(</span>Sender<span class="token punctuation">:</span> TObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-begin">begin</span>
+  <span class="token keyword keyword-var">var</span> LURL <span class="token operator">:=</span> Format<span class="token punctuation">(</span><span class="token string">'http://localhost:%d/hello'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>FServer<span class="token punctuation">.</span>Bindings<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>Port<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  ShellExecute<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'open'</span><span class="token punctuation">,</span> PChar<span class="token punctuation">(</span>LURL<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword keyword-nil">nil</span><span class="token punctuation">,</span> <span class="token keyword keyword-nil">nil</span><span class="token punctuation">,</span> SW_SHOW<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-procedure">procedure</span> TfrmMain<span class="token punctuation">.</span>btnStartClick<span class="token punctuation">(</span>Sender<span class="token punctuation">:</span> TObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-begin">begin</span>
+  Start<span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-procedure">procedure</span> TfrmMain<span class="token punctuation">.</span>btnStopClick<span class="token punctuation">(</span>Sender<span class="token punctuation">:</span> TObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-begin">begin</span>
+  Stop<span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-procedure">procedure</span> TfrmMain<span class="token punctuation">.</span>Start<span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> APort<span class="token punctuation">:</span> Integer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-begin">begin</span>
+  FServer<span class="token punctuation">.</span>Bindings<span class="token punctuation">.</span>Clear<span class="token punctuation">;</span>
+
+  <span class="token keyword keyword-with">with</span> FServer<span class="token punctuation">.</span>Bindings<span class="token punctuation">.</span>Add <span class="token keyword keyword-do">do</span>
+  <span class="token keyword keyword-begin">begin</span>
+    IP <span class="token operator">:=</span> <span class="token string">'0.0.0.0'</span><span class="token punctuation">;</span>
+    Port <span class="token operator">:=</span> APort<span class="token punctuation">;</span>
+  <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+  FServer<span class="token punctuation">.</span>OnCommandGet <span class="token operator">:=</span> TriggerCommandGet<span class="token punctuation">;</span>
+  FServer<span class="token punctuation">.</span>Active <span class="token operator">:=</span> <span class="token keyword keyword-True">True</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-procedure">procedure</span> TfrmMain<span class="token punctuation">.</span>Stop<span class="token punctuation">;</span>
+<span class="token keyword keyword-begin">begin</span>
+  FServer<span class="token punctuation">.</span>Active <span class="token operator">:=</span> <span class="token keyword keyword-False">False</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-procedure">procedure</span> TfrmMain<span class="token punctuation">.</span>TriggerCommandGet<span class="token punctuation">(</span>AContext<span class="token punctuation">:</span> TIdContext<span class="token punctuation">;</span>
+  ARequestInfo<span class="token punctuation">:</span> TIdHTTPRequestInfo<span class="token punctuation">;</span> AResponseInfo<span class="token punctuation">:</span> TIdHTTPResponseInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-begin">begin</span>
+  <span class="token keyword keyword-if">if</span> SameText<span class="token punctuation">(</span>ARequestInfo<span class="token punctuation">.</span>URI<span class="token punctuation">,</span> <span class="token string">'/hello'</span><span class="token punctuation">)</span> <span class="token keyword keyword-then">then</span>
+  <span class="token keyword keyword-begin">begin</span>
+    AResponseInfo<span class="token punctuation">.</span>ContentType <span class="token operator">:=</span> <span class="token string">'application/json'</span><span class="token punctuation">;</span>
+    AResponseInfo<span class="token punctuation">.</span>ContentText <span class="token operator">:=</span> <span class="token string">'{"response": "Hello, world"}'</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+</code></pre><h4 id="24-기본-서버-구현">2.4 기본 서버 구현 </h4>
+<p>가장 기본이 되는 서버를 구현해 보면서 라우터의 사용법에 대해 익힌다.</p>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> BasicServer<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-uses">uses</span> 
+  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
+  Horse<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-begin">begin</span>
+  <span class="token comment">// 라우터에 등록한다</span>
+  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/hello'</span><span class="token punctuation">,</span> 
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-begin">begin</span>
+      Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// 9000번 포트를 리스닝한다</span>
+  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre><h3 id="3-미들웨어"><strong>3. 미들웨어</strong> </h3>
+<h4 id="31-미들웨어란">3.1 미들웨어란? </h4>
+<ul>
+<li>요청-응답 사이클에서의 중간 처리</li>
+<li>공식 미들웨어
+<ul>
+<li><strong>horse/json</strong> SON 처리를 위한 미들웨어</li>
+<li><strong>horse/basic-auth</strong> 기본 인증지원</li>
+<li><strong>horse/cors</strong> Cross-Origun Resource Sharing 지원</li>
+<li><strong>horse/stream</strong> 바이너리 스트림 전송 지원</li>
+<li><strong>horse/jwt</strong> JWT 인증 지원</li>
+<li><strong>horse/exception</strong> 익셉션 처리 지원</li>
+<li><strong>horse/logger</strong> 로깅 지원</li>
+<li><strong>horse/compression</strong> 응답 압축 지원</li>
+</ul>
+</li>
+<li>비공식 미들웨어
+<ul>
+<li>사용자들이 개발한 다양한 미들웨어가 존재하며</li>
+<li>필요에 따라 미들웨어를 직접 만들어서 사용할 수 있다</li>
+</ul>
+</li>
+</ul>
+<h4 id="32-미들웨어-사용해보기">3.2 미들웨어 사용해보기 </h4>
+<h5 id="321-json-미들웨어">3.2.1 JSON 미들웨어 </h5>
+<p>JSON 미들웨어는 웹 서버나 API 서버에서 JSON 데이터를 자동으로 파싱하고 처리하는 중간 계층(middleware) 소프트웨어입니다.</p>
+<p><strong>JSON 미들웨어의 역할</strong></p>
+<ul>
+<li>요청 처리<br>
+HTTP 요청 본문의 JSON을 자동 파싱<br>
+Content-Type 검증 (application/json)<br>
+파싱 에러 처리</li>
+<li>응답 처리<br>
+객체를 JSON으로 자동 직렬화<br>
+적절한 Content-Type 헤더 설정<br>
+JSON 포맷팅 (들여쓰기, 압축 등)</li>
+</ul>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware01<span class="token punctuation">;</span>
+
+<span class="token directive marco property">{$APPTYPE CONSOLE}</span>
+
+<span class="token keyword keyword-uses">uses</span>
+  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
+  System<span class="token punctuation">.</span>JSON<span class="token punctuation">,</span>
+  Horse<span class="token punctuation">,</span>
+  Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-begin">begin</span>
+  <span class="token comment">// 미들웨어 등록</span>
+  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Jhonson<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 라우터에 등록한다</span>
+  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/hello'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-var">var</span>
+      LResult<span class="token punctuation">:</span> TJSONObject<span class="token punctuation">;</span>
+    <span class="token keyword keyword-begin">begin</span>
+      LResult <span class="token operator">:=</span> TJSONObject<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
+      LResult<span class="token punctuation">.</span>AddPair<span class="token punctuation">(</span><span class="token string">'response'</span><span class="token punctuation">,</span> <span class="token string">'Hello, World'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      Res<span class="token punctuation">.</span>Send<span class="token operator">&lt;</span>TJSONObject<span class="token operator">&gt;</span><span class="token punctuation">(</span>LResult<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 9000번 포트를 리스닝한다</span>
+  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre><h5 id="322-basic-auth">3.2.2 basic-auth </h5>
+<p>Basic Authentication은 HTTP 프로토콜에서 가장 기본적인 인증 방식입니다.<br>
+Basic Authentication 동작 원리</p>
+<ol>
+<li>인코딩 방식</li>
+</ol>
+<ul>
+<li>사용자명과 패스워드를 콜론(:)으로 연결</li>
+<li>Base64로 인코딩</li>
+<li>HTTP 헤더에 포함하여 전송</li>
+</ul>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>username:password → Base64 인코딩 → dXNlcm5hbWU6cGFzc3dvcmQ=
+</code></pre><ol start="2">
+<li>HTTP 헤더 형식</li>
+</ol>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+</code></pre><ol start="3">
+<li>보안 고려사항</li>
+</ol>
+<p><strong>장점:</strong></p>
+<ul>
+<li>구현이 간단함</li>
+<li>모든 HTTP 클라이언트에서 지원</li>
+<li>서버 세션 상태 불필요</li>
+</ul>
+<p><strong>단점:</strong></p>
+<ul>
+<li>Base64는 암호화가 아닌 인코딩 (쉽게 디코딩 가능)</li>
+<li>매 요청마다 인증 정보 전송</li>
+<li>브라우저에 패스워드 저장 위험</li>
+</ul>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware02<span class="token punctuation">;</span>
+
+<span class="token directive marco property">{$APPTYPE CONSOLE}</span>
+
+<span class="token keyword keyword-uses">uses</span>
+  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
+  System<span class="token punctuation">.</span>JSON<span class="token punctuation">,</span>
+
+  Horse<span class="token punctuation">,</span>
+  Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span>
+  Horse<span class="token punctuation">.</span>BasicAuthentication<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-begin">begin</span>
+  <span class="token comment">// 미들웨어 등록</span>
+  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Jhonson<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// BasicAuth를 처리하기 위한 미들웨어</span>
+  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>HorseBasicAuthentication<span class="token punctuation">(</span>
+    <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> AUsername<span class="token punctuation">,</span> APassword<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Boolean
+    <span class="token keyword keyword-begin">begin</span>
+      <span class="token keyword keyword-Result">Result</span> <span class="token operator">:=</span> AUsername<span class="token punctuation">.</span>Equals<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span> <span class="token operator">and</span> APassword<span class="token punctuation">.</span>Equals<span class="token punctuation">(</span><span class="token string">'password'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 라우터에 등록한다</span>
+  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/hello'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-var">var</span>
+      LResult<span class="token punctuation">:</span> TJSONObject<span class="token punctuation">;</span>
+    <span class="token keyword keyword-begin">begin</span>
+      LResult <span class="token operator">:=</span> TJSONObject<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
+      LResult<span class="token punctuation">.</span>AddPair<span class="token punctuation">(</span><span class="token string">'response'</span><span class="token punctuation">,</span> <span class="token string">'Hello, World'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      Res<span class="token punctuation">.</span>Send<span class="token operator">&lt;</span>TJSONObject<span class="token operator">&gt;</span><span class="token punctuation">(</span>LResult<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 9000번 포트를 리스닝한다</span>
+  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre><h5 id="323-cors">3.2.3 cors </h5>
+<p>CORS(Cross-Origin Resource Sharing)는 웹 브라우저의 Same-Origin Policy(동일 출처 정책) 제한을 우회하기 위해 사용됩니다.</p>
+<p><strong>Same-Origin Policy란?</strong><br>
+웹 브라우저는 보안상 이유로 다음 조건이 모두 같은 경우에만 리소스 접근을 허용합니다:</p>
+<ul>
+<li>프로토콜 (http/https)</li>
+<li>도메인 (<a href="http://example.com">example.com</a>)</li>
+<li>포트 (80, 443, 8080 등)</li>
+</ul>
+<p><strong>CORS 동작 과정</strong></p>
+<ul>
+<li>Preflight Request: 브라우저가 OPTIONS 요청으로 서버에 허가 요청</li>
+<li>서버 응답: 허용된 origin, 메서드, 헤더 정보 반환</li>
+<li>실제 요청: 허가받은 경우에만 실제 API 호출 실행</li>
+</ul>
+<p><strong>주의사항</strong></p>
+<ul>
+<li>보안: * (모든 도메인 허용)은 운영 환경에서 위험</li>
+<li>성능: Preflight 요청으로 인한 추가 네트워크 비용</li>
+<li>설정: 필요한 origin만 정확히 허용해야 함</li>
+</ul>
+<p>CORS는 웹 브라우저에서만 적용되는 정책이므로, 데스크톱 애플리케이션이나 서버 간 통신에는 영향을 주지 않습니다.</p>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware03<span class="token punctuation">;</span>
+
+<span class="token directive marco property">{$APPTYPE CONSOLE}</span>
+
+<span class="token keyword keyword-uses">uses</span>
+  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
+  System<span class="token punctuation">.</span>JSON<span class="token punctuation">,</span>
+
+  Horse<span class="token punctuation">,</span>
+  Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span>
+  Horse<span class="token punctuation">.</span>BasicAuthentication<span class="token punctuation">,</span>
+  Horse<span class="token punctuation">.</span>CORS<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-begin">begin</span>
+  <span class="token comment">// 미들웨어 등록</span>
+  HorseCORS
+    <span class="token punctuation">.</span>AllowedOrigin<span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>AllowedCredentials<span class="token punctuation">(</span><span class="token keyword keyword-true">true</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>AllowedHeaders<span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>AllowedMethods<span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>ExposedHeaders<span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// It's necessary to add the middleware in the Horse:</span>
+  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>CORS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Jhonson<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// BasicAuth를 처리하기 위한 미들웨어</span>
+  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>HorseBasicAuthentication<span class="token punctuation">(</span>
+    <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> AUsername<span class="token punctuation">,</span> APassword<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Boolean
+    <span class="token keyword keyword-begin">begin</span>
+      <span class="token keyword keyword-Result">Result</span> <span class="token operator">:=</span> AUsername<span class="token punctuation">.</span>Equals<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span> <span class="token operator">and</span> APassword<span class="token punctuation">.</span>Equals<span class="token punctuation">(</span><span class="token string">'password'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 라우터에 등록한다</span>
+  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/hello'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-var">var</span>
+      LResult<span class="token punctuation">:</span> TJSONObject<span class="token punctuation">;</span>
+    <span class="token keyword keyword-begin">begin</span>
+      LResult <span class="token operator">:=</span> TJSONObject<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
+      LResult<span class="token punctuation">.</span>AddPair<span class="token punctuation">(</span><span class="token string">'response'</span><span class="token punctuation">,</span> <span class="token string">'Hello, World'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      Res<span class="token punctuation">.</span>Send<span class="token operator">&lt;</span>TJSONObject<span class="token operator">&gt;</span><span class="token punctuation">(</span>LResult<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 9000번 포트를 리스닝한다</span>
+  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre><h5 id="324-stream">3.2.4 stream </h5>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware01<span class="token punctuation">;</span>
+
+<span class="token directive marco property">{$APPTYPE CONSOLE}</span>
+
+<span class="token keyword keyword-uses">uses</span>
+  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
+  System<span class="token punctuation">.</span>Classes<span class="token punctuation">,</span>
+
+  Horse<span class="token punctuation">,</span>
+  Horse<span class="token punctuation">.</span>OctetStream<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-begin">begin</span>
+  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>OctetStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/stream'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-var">var</span>
+      LStream<span class="token punctuation">:</span> TFileStream<span class="token punctuation">;</span>
+    <span class="token keyword keyword-begin">begin</span>
+      LStream <span class="token operator">:=</span> TFileStream<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>ExtractFilePath<span class="token punctuation">(</span>ParamStr<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'horse.pdf'</span><span class="token punctuation">,</span> fmOpenRead<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      Res<span class="token punctuation">.</span>Send<span class="token operator">&lt;</span>TStream<span class="token operator">&gt;</span><span class="token punctuation">(</span>LStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 9000번 포트를 리스닝한다</span>
+  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre><h5 id="325-jwt">3.2.5 jwt </h5>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span> 
+  Horse<span class="token punctuation">,</span> 
+  Horse<span class="token punctuation">.</span>JWT<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-begin">begin</span>
+  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>HorseJWT<span class="token punctuation">(</span><span class="token string">'MY-PASSWORD'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+  THorse<span class="token punctuation">.</span>Post<span class="token punctuation">(</span><span class="token string">'ping'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-begin">begin</span>
+      Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span><span class="token string">'pong'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre><h5 id="326-exception">3.2.6 exception </h5>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span> 
+  Horse<span class="token punctuation">,</span> 
+  Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span> <span class="token comment">// It's necessary to use the unit</span>
+  Horse<span class="token punctuation">.</span>HandleException<span class="token punctuation">,</span> <span class="token comment">// It's necessary to use the unit</span>
+  System<span class="token punctuation">.</span>JSON<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-begin">begin</span>
+  <span class="token comment">// It's necessary to add the middlewares in the Horse:</span>
+  THorse
+    <span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Jhonson<span class="token punctuation">)</span> <span class="token comment">// It has to be before the exceptions middleware</span>
+    <span class="token punctuation">.</span>Use<span class="token punctuation">(</span>HandleException<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  THorse<span class="token punctuation">.</span>Post<span class="token punctuation">(</span><span class="token string">'/ping'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-begin">begin</span>
+      <span class="token comment">// Manage your exceptions:</span>
+      <span class="token keyword keyword-raise">raise</span> EHorseException<span class="token punctuation">.</span><span class="token keyword keyword-New">New</span><span class="token punctuation">.</span>Error<span class="token punctuation">(</span><span class="token string">'My Error!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre><h5 id="327-logger">3.2.7 logger </h5>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span> 
+  Horse<span class="token punctuation">,</span> 
+  Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span> <span class="token comment">// It's necessary to use the unit</span>
+  Horse<span class="token punctuation">.</span>HandleException<span class="token punctuation">,</span> <span class="token comment">// It's necessary to use the unit</span>
+
+<span class="token keyword keyword-begin">begin</span>
+  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-begin">begin</span>
+      Writeln<span class="token punctuation">(</span>Format<span class="token punctuation">(</span><span class="token string">'[%s] %s %s'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+        FormatDateTime<span class="token punctuation">(</span><span class="token string">'yyyy-mm-dd hh:nn:ss'</span><span class="token punctuation">,</span> Now<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        Req<span class="token punctuation">.</span>Method<span class="token punctuation">,</span>
+        Req<span class="token punctuation">.</span>PathInfo
+      <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      Next<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre><h5 id="328-compression">3.2.8 compression </h5>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span>
+  Horse<span class="token punctuation">,</span>
+  Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span>
+  Horse<span class="token punctuation">.</span>Compression<span class="token punctuation">,</span> <span class="token comment">// It's necessary to use the unit</span>
+  System<span class="token punctuation">.</span>JSON<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-begin">begin</span>
+  THorse
+    <span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Compression<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// Must come before Jhonson middleware</span>
+    <span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Jhonson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// You can set compression threshold:</span>
+  <span class="token comment">// THorse.Use(Compression(1024));</span>
+
+  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/ping'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-var">var</span>
+      I<span class="token punctuation">:</span> Integer<span class="token punctuation">;</span>
+      LPong<span class="token punctuation">:</span> TJSONArray<span class="token punctuation">;</span>
+    <span class="token keyword keyword-begin">begin</span>
+      LPong <span class="token operator">:=</span> TJSONArray<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
+      <span class="token keyword keyword-for">for</span> I <span class="token operator">:=</span> <span class="token number">0</span> <span class="token keyword keyword-to">to</span> <span class="token number">1000</span> <span class="token keyword keyword-do">do</span>
+        LPong<span class="token punctuation">.</span>Add<span class="token punctuation">(</span>TJSONObject<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>TJSONPair<span class="token punctuation">.</span>Create<span class="token punctuation">(</span><span class="token string">'ping'</span><span class="token punctuation">,</span> <span class="token string">'pong'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span>LPong<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre><h3 id="4-데이터베이스-연동-서버"><strong>4. 데이터베이스 연동 서버</strong> </h3>
+<h4 id="41-데이터베이스-및-샘플-데이터-생성">4.1 데이터베이스 및 샘플 데이터 생성 </h4>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-DROP">DROP</span> <span class="token keyword keyword-TABLE">TABLE</span> <span class="token keyword keyword-IF">IF</span> <span class="token keyword keyword-EXISTS">EXISTS</span> users<span class="token punctuation">;</span>
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> users <span class="token punctuation">(</span>
+  seq <span class="token keyword keyword-INTEGER">INTEGER</span> <span class="token keyword keyword-AUTO_INCREMENT">AUTO_INCREMENT</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+  usr_id <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  usr_name <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  usr_pw <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  email <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="42-firedac-연결-풀-만들기">4.2 FireDAC 연결 풀 만들기 </h4>
+<ul>
+<li>데이터베이스 연결 풀을 사용해야 하는 이유
+<ul>
+<li>성능 저하</li>
+<li>리소스 낭비</li>
+<li>연결 한계 초과시 데이터베이스 성능 저하 또는 다운<br>
+MySQL 기본 max_connections = 151<br>
+PostgreSQL 기본 max_connections = 100</li>
+</ul>
+</li>
+<li>FireDAC은 풀링을 기본으로 지원한다</li>
+</ul>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-unit">unit</span> uDBPool<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-interface">interface</span>
+
+<span class="token directive marco property">{$REGION 'USES'}</span>
+<span class="token keyword keyword-uses">uses</span>
+  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
+  System<span class="token punctuation">.</span>Classes<span class="token punctuation">,</span>
+  System<span class="token punctuation">.</span>Generics<span class="token punctuation">.</span>Collections<span class="token punctuation">,</span>
+  System<span class="token punctuation">.</span>NetEncoding<span class="token punctuation">,</span>
+
+  Data<span class="token punctuation">.</span>DB<span class="token punctuation">,</span>
+
+  FireDAC<span class="token punctuation">.</span>Comp<span class="token punctuation">.</span>UI<span class="token punctuation">,</span>
+  FireDAC<span class="token punctuation">.</span>UI<span class="token punctuation">.</span>Intf<span class="token punctuation">,</span>
+  FireDAC<span class="token punctuation">.</span>VCLUI<span class="token punctuation">.</span>Wait<span class="token punctuation">,</span>
+  FireDAC<span class="token punctuation">.</span>Stan<span class="token punctuation">.</span>Def<span class="token punctuation">,</span>
+  FireDAC<span class="token punctuation">.</span>Stan<span class="token punctuation">.</span>Intf<span class="token punctuation">,</span>
+  FireDAC<span class="token punctuation">.</span>Stan<span class="token punctuation">.</span>Pool<span class="token punctuation">,</span>
+  FireDAC<span class="token punctuation">.</span>Stan<span class="token punctuation">.</span>Async<span class="token punctuation">,</span>
+  FireDAC<span class="token punctuation">.</span>Stan<span class="token punctuation">.</span>Param<span class="token punctuation">,</span>
+  FireDAC<span class="token punctuation">.</span>DApt<span class="token punctuation">,</span>
+  FireDAC<span class="token punctuation">.</span>Phys<span class="token punctuation">.</span>MySQL<span class="token punctuation">,</span>
+  FireDAC<span class="token punctuation">.</span>Comp<span class="token punctuation">.</span>Client<span class="token punctuation">,</span>
+  FireDAC<span class="token punctuation">.</span>Comp<span class="token punctuation">.</span>Script<span class="token punctuation">;</span>
+<span class="token directive marco property">{$ENDREGION}</span>
+
+<span class="token keyword keyword-type">type</span>
+  TDatabase <span class="token operator">=</span> <span class="token keyword keyword-class">class</span> sealed
+  <span class="token keyword keyword-strict">strict</span> <span class="token keyword keyword-private">private</span>
+    <span class="token keyword keyword-const">const</span>
+      CONNECTION_NAME <span class="token operator">=</span> <span class="token string">'_pooled_connection_'</span><span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-class">class</span> <span class="token keyword keyword-constructor">constructor</span> Create<span class="token punctuation">;</span>
+    <span class="token keyword keyword-class">class</span> <span class="token keyword keyword-destructor">destructor</span> Destroy<span class="token punctuation">;</span>
+  <span class="token keyword keyword-public">public</span>
+    <span class="token keyword keyword-class">class</span> <span class="token keyword keyword-function">function</span>  GetConnection<span class="token punctuation">:</span> TFDConnection<span class="token punctuation">;</span> <span class="token keyword keyword-static">static</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-implementation">implementation</span>
+
+<span class="token directive marco property">{$REGION 'TDatabase'}</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token keyword keyword-constructor">constructor</span> TDatabase<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
+<span class="token keyword keyword-begin">begin</span>
+  <span class="token keyword keyword-var">var</span> LParams <span class="token operator">:=</span> TStringList<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
+  <span class="token keyword keyword-try">try</span>
+    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'Server=127.0.0.1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'Port=3306'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'Database=pos_db'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'User_Name=root'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'Password=1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'Pooled=True'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'CharacterSet=Utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    FDManager<span class="token punctuation">.</span>AddConnectionDef<span class="token punctuation">(</span>CONNECTION_NAME<span class="token punctuation">,</span> <span class="token string">'MySQL'</span><span class="token punctuation">,</span> LParams<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-finally">finally</span>
+    LParams<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+  <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token keyword keyword-destructor">destructor</span> TDatabase<span class="token punctuation">.</span>Destroy<span class="token punctuation">;</span>
+<span class="token keyword keyword-begin">begin</span>
+  FDManager<span class="token punctuation">.</span>CloseConnectionDef<span class="token punctuation">(</span>CONNECTION_NAME<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token keyword keyword-function">function</span> TDatabase<span class="token punctuation">.</span>GetConnection<span class="token punctuation">:</span> TFDConnection<span class="token punctuation">;</span>
+<span class="token keyword keyword-begin">begin</span>
+  <span class="token keyword keyword-Result">Result</span> <span class="token operator">:=</span> TFDConnection<span class="token punctuation">.</span>Create<span class="token punctuation">(</span><span class="token keyword keyword-nil">nil</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-Result">Result</span><span class="token punctuation">.</span>ConnectionDefName <span class="token operator">:=</span> CONNECTION_NAME<span class="token punctuation">;</span>
+  <span class="token keyword keyword-Result">Result</span><span class="token punctuation">.</span>Connected <span class="token operator">:=</span> <span class="token keyword keyword-True">True</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+<span class="token directive marco property">{$ENDREGION}</span>
+
+<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre><h4 id="43-api-설계">4.3 API 설계 </h4>
+<table>
+<thead>
+<tr>
+<th>HTTP 메소드</th>
+<th>URL</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>/api/users</td>
+<td>전체 사용자 목록 조회</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/api/users/:id</td>
+<td>특정 사용자 조회</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/api/users</td>
+<td>사용자 생성</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/api/users/:id</td>
+<td>특정 사용자 삭제</td>
+</tr>
+</tbody>
+</table>
+<h4 id="44-구현">4.4 구현 </h4>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code></code></pre><h3 id="5-api-문서화와-테스트"><strong>5. API 문서화와 테스트</strong> </h3>
+<h4 id="51-swagger를-사용해서-문서화-하기">5.1 Swagger를 사용해서 문서화 하기 </h4>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span>
+  Horse<span class="token punctuation">,</span>
+  Horse<span class="token punctuation">.</span>GBSwagger<span class="token punctuation">;</span>
+  
+<span class="token keyword keyword-type">type</span>
+  TUser <span class="token operator">=</span> <span class="token keyword keyword-class">class</span>
+  <span class="token keyword keyword-private">private</span>
+    Fid<span class="token punctuation">:</span> Double<span class="token punctuation">;</span>
+    Fname<span class="token punctuation">:</span> <span class="token keyword keyword-String">String</span><span class="token punctuation">;</span>
+    FlastName<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-public">public</span>
+    <span class="token keyword keyword-property">property</span> id<span class="token punctuation">:</span> Double <span class="token keyword keyword-read">read</span> Fid <span class="token keyword keyword-write">write</span> Fid<span class="token punctuation">;</span>
+    <span class="token keyword keyword-property">property</span> <span class="token keyword keyword-name">name</span><span class="token punctuation">:</span> <span class="token keyword keyword-String">String</span> <span class="token keyword keyword-read">read</span> Fname <span class="token keyword keyword-write">write</span> Fname<span class="token punctuation">;</span>
+    <span class="token keyword keyword-property">property</span> lastName<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span> <span class="token keyword keyword-read">read</span> FlastName <span class="token keyword keyword-write">write</span> FlastName<span class="token punctuation">;</span>
+  <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+
+  TAPIError <span class="token operator">=</span> <span class="token keyword keyword-class">class</span>
+  <span class="token keyword keyword-private">private</span>
+    Ferror<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-public">public</span>
+    <span class="token keyword keyword-property">property</span> error<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span> <span class="token keyword keyword-read">read</span> Ferror <span class="token keyword keyword-write">write</span> Ferror<span class="token punctuation">;</span>
+  <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+  
+<span class="token keyword keyword-var">var</span>
+  APP<span class="token punctuation">:</span> THorse<span class="token punctuation">;</span>
+  
+<span class="token keyword keyword-begin">begin</span>
+  App <span class="token operator">:=</span> THorse<span class="token punctuation">.</span>Create<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Access http://localhost:9000/swagger/doc/html</span>
+  App<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>HorseSwagger<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  
+  API<span class="token punctuation">.</span>Get <span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> 
+    <span class="token keyword keyword-procedure">procedure</span> <span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Resp<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span> 
+    <span class="token keyword keyword-begin">begin</span> 
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  API<span class="token punctuation">.</span>Post<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> 
+    <span class="token keyword keyword-procedure">procedure</span> <span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Resp<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span> 
+    <span class="token keyword keyword-begin">begin</span> 
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  Swagger
+    <span class="token punctuation">.</span>BasePath<span class="token punctuation">(</span><span class="token string">'v1'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>Path<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>Tag<span class="token punctuation">(</span><span class="token string">'User'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>GET<span class="token punctuation">(</span><span class="token string">'List All'</span><span class="token punctuation">,</span> <span class="token string">'List All Users'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token string">'successful operation'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TUser<span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>IsArray<span class="token punctuation">(</span><span class="token keyword keyword-True">True</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>&amp;End
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'Bad Request'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TAPIError<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>&amp;End
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> <span class="token string">'Internal Server Error'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TAPIError<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>&amp;End
+      <span class="token punctuation">.</span>&amp;End
+      <span class="token punctuation">.</span>POST<span class="token punctuation">(</span><span class="token string">'Add user'</span><span class="token punctuation">,</span> <span class="token string">'Add a new user'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>AddParamBody<span class="token punctuation">(</span><span class="token string">'User data'</span><span class="token punctuation">,</span> <span class="token string">'User data'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>Required<span class="token punctuation">(</span><span class="token keyword keyword-True">True</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TUser<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>&amp;End
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token string">'Created'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TUser<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>&amp;End
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'Bad Request'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TAPIError<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>&amp;End
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> <span class="token string">'Internal Server Error'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TAPIError<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>&amp;End
+      <span class="token punctuation">.</span>&amp;End
+    <span class="token punctuation">.</span>&amp;End
+  <span class="token punctuation">.</span>&amp;End<span class="token punctuation">;</span>
+
+  App<span class="token punctuation">.</span>Start<span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre>
+      </div>
+      
+      
+    
+    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+}
+</script>
+    
+    
+    
+  
+    </body></html>
