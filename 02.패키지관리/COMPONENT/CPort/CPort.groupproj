@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A4643B0E-0A54-4B49-BFEA-02199C43DD7C}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Packages\FBC.CPort.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Packages\FBC.CPort.Design.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FBC_CPort">
+        <MSBuild Projects="Packages\FBC.CPort.dproj"/>
+    </Target>
+    <Target Name="FBC_CPort:Clean">
+        <MSBuild Projects="Packages\FBC.CPort.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FBC_CPort:Make">
+        <MSBuild Projects="Packages\FBC.CPort.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FBC_CPort_Design">
+        <MSBuild Projects="Packages\FBC.CPort.Design.dproj"/>
+    </Target>
+    <Target Name="FBC_CPort_Design:Clean">
+        <MSBuild Projects="Packages\FBC.CPort.Design.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FBC_CPort_Design:Make">
+        <MSBuild Projects="Packages\FBC.CPort.Design.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FBC_CPort;FBC_CPort_Design"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FBC_CPort:Clean;FBC_CPort_Design:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FBC_CPort:Make;FBC_CPort_Design:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
