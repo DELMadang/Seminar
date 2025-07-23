@@ -1,104 +1,445 @@
-<!DOCTYPE html><html><head>
-      <title>Seminar_20250723</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
-      <link rel="stylesheet" href="file:///c:\Users\civilian\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
-      
-      
-      <script type="text/javascript" src="file:///c:\Users\civilian\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
-      
-      
-      <style>
-      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
-/* Please visit the URL below for more information: */
-/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+<!DOCTYPE html>
+<html>
+<head>
+<title>Seminar_20250723.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
-      </style>
-      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function () {
-    // your code here
-  });
-</script></head><body for="html-export">
-    
-    
-      <div class="crossnote markdown-preview  ">
-      
-<h2 id="델파이-horse를-활용한-rest-서버-구현-세미나">델파이 Horse를 활용한 REST 서버 구현 세미나 </h2>
-<h3 id="0-세미나-개요"><strong>0. 세미나 개요</strong> </h3>
-<h4 id="01-개요">0.1 개요 </h4>
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="%EB%8D%B8%ED%8C%8C%EC%9D%B4-horse%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-rest-%EC%84%9C%EB%B2%84-%EA%B5%AC%ED%98%84-%EC%84%B8%EB%AF%B8%EB%82%98">델파이 Horse를 활용한 REST 서버 구현 세미나</h2>
+<h3 id="0-%EC%84%B8%EB%AF%B8%EB%82%98-%EA%B0%9C%EC%9A%94"><strong>0. 세미나 개요</strong></h3>
+<h4 id="01-%EA%B0%9C%EC%9A%94">0.1 개요</h4>
 <p><strong>총 소요시간</strong>: 2시간 (120분)<br>
 <strong>대상</strong>: 델파이 개발 경험이 있는 개발자<br>
 <strong>목표</strong>: Horse 프레임워크를 사용하여 실무에서 활용 가능한 REST API 서버 구축</p>
-<h4 id="02-필요한-사전-준비사항">0.2 필요한 사전 준비사항 </h4>
+<h4 id="02-%ED%95%84%EC%9A%94%ED%95%9C-%EC%82%AC%EC%A0%84-%EC%A4%80%EB%B9%84%EC%82%AC%ED%95%AD">0.2 필요한 사전 준비사항</h4>
 <ul>
 <li>데이터베이스: <a href="https://mariadb.org/download/">MariaDB</a></li>
 <li>쿼리 브라우저: <a href="https://dbeaver.io/download/">DBEaver</a></li>
 </ul>
-<h4 id="03-개발-도구">0.3 개발 도구 </h4>
+<h4 id="03-%EA%B0%9C%EB%B0%9C-%EB%8F%84%EA%B5%AC">0.3 개발 도구</h4>
 <ul>
 <li>Delphi XE8 이상</li>
 </ul>
-<h3 id="1-rest-api-개요"><strong>1. REST API 개요</strong> </h3>
-<h4 id="11-rest-api란">1.1 REST API란? </h4>
-<p><strong>REST API</strong>는 웹에서 데이터를 주고받기 위한 표준 규칙입니다.<br>
-마치 레스토랑의 메뉴판처럼, 클라이언트가 서버에게 "이런 데이터를 달라" 또는 "이런 작업을 해달라"고 요청하는 방식을 정의하며, 통신 프로토콜은 HTTP/HTTPS를 데이터는 JSON을 사용합니다.</p>
+<h3 id="1-rest-api-%EA%B0%9C%EC%9A%94"><strong>1. REST API 개요</strong></h3>
+<h4 id="11-rest-api%EB%9E%80">1.1 REST API란?</h4>
+<p><strong>REST API</strong>는 웹에서 데이터를 주고받기 위한 표준 규칙입니다.
+마치 레스토랑의 메뉴판처럼, 클라이언트가 서버에게 &quot;이런 데이터를 달라&quot; 또는 &quot;이런 작업을 해달라&quot;고 요청하는 방식을 정의하며, 통신 프로토콜은 HTTP/HTTPS를 데이터는 JSON을 사용합니다.</p>
 <blockquote>
 <p><strong>REST</strong> = <strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer(표현 상태 전이)</p>
 </blockquote>
-<h4 id="12-rest-api의-핵심-구조">1.2 REST API의 핵심 구조 </h4>
+<h4 id="12-rest-api%EC%9D%98-%ED%95%B5%EC%8B%AC-%EA%B5%AC%EC%A1%B0">1.2 REST API의 핵심 구조</h4>
 <p>HTTP 메소드 + URL = 작업 정의</p>
 <table>
-  <tbody><tr><th width="400px">요청</th>
-  <th width="200px">의미</th>
-  </tr><tr>
-    <td><b>GET</b> /users</td>
+  <th width=400px>요청</th>
+  <th width=200px>의미</th>
+  <tr>
+    <td>GET /user</td>
     <td>사용자 목록 조회</td>
   </tr>
   <tr>
-    <td>GET /users/123</td>
+    <td>GET /user/123</td>
     <td>123번 사용자 조회</td>
   </tr>
   <tr>
-    <td>POST /users</td>
+    <td>POST /user</td>
     <td>새 사용자 생성</td>
   </tr>
   <tr>
-    <td>PUTT /user/123</td>
+    <td>PUT /user/123</td>
     <td>123번 사용자 수정</td>
   </tr>
   <tr>
     <td>DELETE /user/123</td>
     <td>123번 사용자 삭제</td>
   </tr>
-</tbody></table>
-<h4 id="13-rest-api의-5가지-핵심-원칙">1.3 REST API의 5가지 핵심 원칙 </h4>
-<h5 id="131-리소스-중심-설계">1.3.1 리소스 중심 설계 </h5>
+</table>
+<h4 id="13-rest-api%EC%9D%98-5%EA%B0%80%EC%A7%80-%ED%95%B5%EC%8B%AC-%EC%9B%90%EC%B9%99">1.3 REST API의 5가지 핵심 원칙</h4>
+<h5 id="131-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A4%91%EC%8B%AC-%EC%84%A4%EA%B3%84">1.3.1 리소스 중심 설계</h5>
 <p>HTTP 메소드는 동사로, URL은 명사로 표현한다</p>
 <table>
-  <tbody><tr><th width="400px">요청</th>
-  <th width="200px">비고</th>
-  </tr><tr>
-    <td>GET /books/123</td>
+  <th width=400px>요청</th>
+  <th width=200px>비고</th>
+  <tr>
+    <td>GET /book/123</td>
     <td>좋은 예</td>
   </tr>
   <tr>
     <td>GET /getBook/123</td>
     <td>나쁜 예</td>
   </tr>
-</tbody></table>
-<h5 id="132-무상태stateless">1.3.2 무상태(Stateless) </h5>
+</table>
+<h5 id="132-%EB%AC%B4%EC%83%81%ED%83%9Cstateless">1.3.2 무상태(Stateless)</h5>
 <p>서버는 이전 요청을 기억하지 않음. 매 요청마다 필요한 모든 정보 포함해야 한다</p>
 <blockquote>
-<p>매번 인증 토큰 포함<br>
-GET /api/users<br>
+<p>매번 인증 토큰 포함
+GET /api/users
 Authorization: Bearer abc123token</p>
 </blockquote>
-<h5 id="133-표준-http-메소드-사용">1.3.3 표준 HTTP 메소드 사용 </h5>
+<h5 id="133-%ED%91%9C%EC%A4%80-http-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%82%AC%EC%9A%A9">1.3.3 표준 HTTP 메소드 사용</h5>
 <table>
-  <tbody><tr><th width="400px">메소드</th>
-  <th width="200px">의미</th>
-  </tr><tr>
+  <th width=400px>메소드</th>
+  <th width=200px>의미</th>
+  <tr>
     <td>GET</td>
     <td>조회</td>
   </tr>
@@ -114,24 +455,24 @@ Authorization: Bearer abc123token</p>
     <td>DELETE</td>
     <td>삭제</td>
   </tr>
-</tbody></table>
-<h5 id="134-계층화된-구조">1.3.4 계층화된 구조 </h5>
+</table>
+<h5 id="134-%EA%B3%84%EC%B8%B5%ED%99%94%EB%90%9C-%EA%B5%AC%EC%A1%B0">1.3.4 계층화된 구조</h5>
 <p>클라이언트는 서버의 내부 구조를 몰라도 됨</p>
-<div class="mermaid">flowchart TD
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TD
     %% 클라이언트 계층
-    A1[🖥️ 웹 브라우저] --&gt; C[⚖️ 로드밸런서 ]
-    A2[📱 모바일 앱] --&gt; C
-    A3[💻 데스크톱 앱] --&gt; C
+    A1[🖥️ 웹 브라우저] --> C[⚖️ 로드밸런서 ]
+    A2[📱 모바일 앱] --> C
+    A3[💻 데스크톱 앱] --> C
     
     %% 로드밸런서에서 서버들로 분산
-    C --&gt; |트래픽 분산| D1[🖥️ 서버 1]
-    C --&gt; |트래픽 분산| D2[🖥️ 서버 2]
-    C --&gt; |트래픽 분산| D3[🖥️ 서버 3]
+    C --> |트래픽 분산| D1[🖥️ 서버 1]
+    C --> |트래픽 분산| D2[🖥️ 서버 2]
+    C --> |트래픽 분산| D3[🖥️ 서버 3]
     
     %% 서버들이 데이터베이스에 접근
-    D1 --&gt; E[🗄️ 데이터베이스&lt;br/&gt;RDBMS or NoSQL ]
-    D2 --&gt; E
-    D3 --&gt; E
+    D1 --> E[🗄️ 데이터베이스<br/>RDBMS or NoSQL ]
+    D2 --> E
+    D3 --> E
     
     %% 스타일 정의
     classDef client fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
@@ -145,15 +486,16 @@ Authorization: Bearer abc123token</p>
     class C loadbalancer
     class D1,D2,D3 server
     class E database
-</div><h5 id="135-캐시-가능">1.3.5 캐시 가능 </h5>
+</div></code></pre>
+<h5 id="135-%EC%BA%90%EC%8B%9C-%EA%B0%80%EB%8A%A5">1.3.5 캐시 가능</h5>
 <p>GET 요청 결과는 캐시하여 성능 향상</p>
 <blockquote>
-<p>Cache-Control: max-age=3600<br>
-ETag: "abc123"</p>
+<p>Cache-Control: max-age=3600
+ETag: &quot;abc123&quot;</p>
 </blockquote>
-<h3 id="2-horse-프레임워크-소개"><strong>2. HORSE 프레임워크 소개</strong> </h3>
-<h4 id="21-horse-프레임워크-특징">2.1 Horse 프레임워크 특징 </h4>
-<h5 id="211-경량화와-고성능">2.1.1 경량화와 고성능 </h5>
+<h3 id="2-horse-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EC%86%8C%EA%B0%9C"><strong>2. HORSE 프레임워크 소개</strong></h3>
+<h4 id="21-horse-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%ED%8A%B9%EC%A7%95">2.1 Horse 프레임워크 특징</h4>
+<h5 id="211-%EA%B2%BD%EB%9F%89%ED%99%94%EC%99%80-%EA%B3%A0%EC%84%B1%EB%8A%A5">2.1.1 경량화와 고성능</h5>
 <ul>
 <li>네이티브 컴파일</li>
 <li>메모리 효율 (매우 적은 메모리만 사용한다)</li>
@@ -161,67 +503,57 @@ ETag: "abc123"</p>
 <li>경량화된 웹 프레임워크</li>
 <li>간단한 라우팅 시스템</li>
 </ul>
-<h5 id="212-간단하고-직관적인-문법">2.1.2 간단하고 직관적인 문법 </h5>
+<h5 id="212-%EA%B0%84%EB%8B%A8%ED%95%98%EA%B3%A0-%EC%A7%81%EA%B4%80%EC%A0%81%EC%9D%B8-%EB%AC%B8%EB%B2%95">2.1.2 간단하고 직관적인 문법</h5>
 <ul>
 <li>학습 곡선이 낮음</li>
 <li>Node의 Express와 유사</li>
 <li>가독성이 좋음.</li>
 </ul>
-<h5 id="213-다양하고-강력한-미들웨어-시스템">2.1.3 다양하고 강력한 미들웨어 시스템 </h5>
+<h5 id="213-%EB%8B%A4%EC%96%91%ED%95%98%EA%B3%A0-%EA%B0%95%EB%A0%A5%ED%95%9C-%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4-%EC%8B%9C%EC%8A%A4%ED%85%9C">2.1.3 다양하고 강력한 미들웨어 시스템</h5>
 <ul>
 <li>모듈화: 기능별로 미들웨어 분리</li>
 <li>재사용성: 다른 프로젝트에서도 동일한 미들웨어 사용</li>
 <li>확장성: 필요한 미들웨어만 추가/제거 가능</li>
 </ul>
-<h5 id="214-다양한-os-지원">2.1.4 다양한 OS 지원 </h5>
+<h5 id="214-%EB%8B%A4%EC%96%91%ED%95%9C-os-%EC%A7%80%EC%9B%90">2.1.4 다양한 OS 지원</h5>
 <ul>
 <li>Windows</li>
 <li>Linux</li>
 <li>macOS</li>
 </ul>
-<h5 id="215-델파이-생태계와의-통합">2.1.5 델파이 생태계와의 통합 </h5>
+<h5 id="215-%EB%8D%B8%ED%8C%8C%EC%9D%B4-%EC%83%9D%ED%83%9C%EA%B3%84%EC%99%80%EC%9D%98-%ED%86%B5%ED%95%A9">2.1.5 델파이 생태계와의 통합</h5>
 <ul>
 <li>기존 델파이 라이브러리를 사용할 수 있다</li>
 <li>FireDAC, UniDAC 등 다양한 데이터베이스 드라이버를 사용할 수 있다</li>
 </ul>
-<h5 id="216-간편한-배포와-운영">2.1.6 간편한 배포와 운영 </h5>
+<h5 id="216-%EA%B0%84%ED%8E%B8%ED%95%9C-%EB%B0%B0%ED%8F%AC%EC%99%80-%EC%9A%B4%EC%98%81">2.1.6 간편한 배포와 운영</h5>
 <ul>
 <li>단일 실행파일로 배포와 운영이 편리 (런타임 불필요)</li>
 <li>도커로 배포 가능</li>
 <li>클라우드에 배포 가능</li>
 </ul>
-<h5 id="217-다른-프레임워크들">2.1.7 다른 프레임워크들 </h5>
+<h5 id="217-%EB%8B%A4%EB%A5%B8-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%93%A4">2.1.7 다른 프레임워크들</h5>
+<p><strong>델파이 기본 제공</strong></p>
 <ul>
-<li><strong>DataSnap</strong> 또는 <strong>WebBroker</strong><br>
+<li><strong>DataSnap</strong> 또는 <strong>WebBroker</strong>
 델파이에서 기본으로 제공한다. 12.2에서는 웹스텐실을 사용해서 템플릿을 쉽게 만들 수 있다.</li>
-<li><strong>MARS</strong><br>
-<a href="https://github.com/andrea-magni/MARS">https://github.com/andrea-magni/MARS</a></li>
-<li><strong>WiRL</strong><br>
-<a href="https://github.com/delphi-blocks/WiRL">https://github.com/delphi-blocks/WiRL</a><br>
-MARS와 WiRL은 같은 뿌리에서 나온 것으로 보이는데 MARS가 구현된 것이 조금 더 많지만, WiRL이 코드는 훨씬 정갈하다.</li>
-<li><strong>DelphiMVCFramework</strong><br>
-<a href="https://github.com/danieleteti/delphimvcframework">https://github.com/danieleteti/delphimvcframework</a><br>
-가장 업데이트가 활발하다. 소스코드 정돈이 잘 안된점은 아쉽다.</li>
-<li><strong>TMS WebCore</strong><br>
-<a href="https://www.tmssoftware.com/site/tmswebcore.asp">https://www.tmssoftware.com/site/tmswebcore.asp</a><br>
-델파이 Form을 웹으로 전환해주는 등의 기능이 있다. 유료</li>
-<li><strong>Intraweb</strong><br>
-<a href="https://www.atozed.com/intraweb/">https://www.atozed.com/intraweb/</a><br>
-가장 오래된 솔루션. 유료.</li>
-<li><strong>UniGUI</strong><br>
-<a href="https://www.unigui.com/">https://www.unigui.com/</a><br>
-유료</li>
-<li><strong>D2Bridge</strong><br>
-<a href="https://www.d2bridge.com.br/#">https://www.d2bridge.com.br/#</a><br>
-델파이 Form을 웹으로 전환해주는 등의 기능이 있다.<br>
-오픈소스<br>
-​</li>
 </ul>
-<h4 id="22-소스코드-다운로드">2.2 소스코드 다운로드 </h4>
-<p>델마당 공식 리포지토리에서 클론한다<br>
+<p><strong>오픈소스</strong></p>
+<ul>
+<li><strong>MARS</strong>
+<a href="https://github.com/andrea-magni/MARS">https://github.com/andrea-magni/MARS</a></li>
+<li><strong>WiRL</strong>
+<a href="https://github.com/delphi-blocks/WiRL">https://github.com/delphi-blocks/WiRL</a>
+MARS와 WiRL은 같은 뿌리에서 나온 것으로 보이는데 MARS가 구현된 것이 조금 더 많지만, WiRL이 코드는 훨씬 정갈하다.</li>
+<li><strong>DelphiMVCFramework</strong>
+<a href="https://github.com/danieleteti/delphimvcframework">https://github.com/danieleteti/delphimvcframework</a>
+가장 업데이트가 활발하다. 소스코드 정돈이 잘 안된점은 아쉽다.</li>
+</ul>
+<h4 id="22-%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C">2.2 소스코드 다운로드</h4>
+<p>델마당 공식 리포지토리에서 클론한다
 <a href="https://github.com/DELMadang/Seminar">델마당 세미나 리포지토리</a></p>
 <p>클론 후 폴더의 구성은 다음과 같다.</p>
-<pre data-role="codeBlock" data-info="console" class="language-console console"><code>01.RESTServer/
+<pre class="hljs"><code><div>01.RESTServer/
   ├── bin                     // 실행 파일이 생성되는 곳
   ├── database
   │   └── schema.sql          // MariaDB용 스키마
@@ -238,88 +570,144 @@ MARS와 WiRL은 같은 뿌리에서 나온 것으로 보이는데 MARS가 구현
       ├── 03.Database         // 데이터베이스 연동 서버
       ├── 04.Client           // 클라이언트
       └── 99.NodeJS           // NodeJS 예제
-</code></pre><h4 id="23-indy를-사용하여-구현하기">2.3 Indy를 사용하여 구현하기 </h4>
+</div></code></pre>
+<h4 id="23-indy%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0">2.3 Indy를 사용하여 구현하기</h4>
 <p>프레임워크의 도움없이 서버를 구현해 보면서, 프레임워크의 필요성에 대해 알아본다</p>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-constructor">constructor</span> TfrmMain<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>AOwner<span class="token punctuation">:</span> TComponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-begin">begin</span>
-  <span class="token keyword keyword-inherited">inherited</span><span class="token punctuation">;</span>
+<pre class="hljs"><code><div><span class="hljs-keyword">unit</span> uMain;
 
-  FServer <span class="token operator">:=</span> TIdHttpServer<span class="token punctuation">.</span>Create<span class="token punctuation">(</span><span class="token keyword keyword-Self">Self</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">interface</span>
 
-<span class="token keyword keyword-destructor">destructor</span> TfrmMain<span class="token punctuation">.</span>Destroy<span class="token punctuation">;</span>
-<span class="token keyword keyword-begin">begin</span>
-  FServer<span class="token punctuation">.</span>Active <span class="token operator">:=</span> <span class="token keyword keyword-False">False</span><span class="token punctuation">;</span>
-  FServer<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+<span class="hljs-keyword">uses</span>
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
 
-  <span class="token keyword keyword-inherited">inherited</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.StdCtrls,
 
-<span class="token keyword keyword-procedure">procedure</span> TfrmMain<span class="token punctuation">.</span>btnExecuteClick<span class="token punctuation">(</span>Sender<span class="token punctuation">:</span> TObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-begin">begin</span>
-  <span class="token keyword keyword-var">var</span> LURL <span class="token operator">:=</span> Format<span class="token punctuation">(</span><span class="token string">'http://localhost:%d/hello'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>FServer<span class="token punctuation">.</span>Bindings<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>Port<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  ShellExecute<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'open'</span><span class="token punctuation">,</span> PChar<span class="token punctuation">(</span>LURL<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword keyword-nil">nil</span><span class="token punctuation">,</span> <span class="token keyword keyword-nil">nil</span><span class="token punctuation">,</span> SW_SHOW<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+  IdContext,
+  IdHttp,
+  IdCustomHttpServer,
+  IdHttpServer;
 
-<span class="token keyword keyword-procedure">procedure</span> TfrmMain<span class="token punctuation">.</span>btnStartClick<span class="token punctuation">(</span>Sender<span class="token punctuation">:</span> TObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-begin">begin</span>
-  Start<span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">type</span>
+  <span class="hljs-title">TfrmMain</span> = <span class="hljs-keyword">class</span>(TForm)
+    ePort: TEdit;
+    btnStart: TButton;
+    btnStop: TButton;
+    btnExecute: TButton;
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">btnExecuteClick</span><span class="hljs-params">(Sender: TObject)</span>;</span>
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">btnStartClick</span><span class="hljs-params">(Sender: TObject)</span>;</span>
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">btnStopClick</span><span class="hljs-params">(Sender: TObject)</span>;</span>
+  <span class="hljs-keyword">private</span>
+    FServer: TIdHttpServer;
 
-<span class="token keyword keyword-procedure">procedure</span> TfrmMain<span class="token punctuation">.</span>btnStopClick<span class="token punctuation">(</span>Sender<span class="token punctuation">:</span> TObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-begin">begin</span>
-  Stop<span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">Start</span><span class="hljs-params">(<span class="hljs-keyword">const</span> APort: Integer = 8080)</span>;</span>
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">Stop</span>;</span>
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">TriggerCommandGet</span><span class="hljs-params">(AContext: TIdContext; ARequestInfo:
+      TIdHTTPRequestInfo; AResponseInfo: TIdHTTPResponseInfo)</span>;</span>
+  <span class="hljs-keyword">public</span>
+    <span class="hljs-function"><span class="hljs-keyword">constructor</span> <span class="hljs-title">Create</span><span class="hljs-params">(AOwner: TComponent)</span>;</span> <span class="hljs-keyword">override</span>;
+    <span class="hljs-function"><span class="hljs-keyword">destructor</span> <span class="hljs-title">Destroy</span>;</span> <span class="hljs-keyword">override</span>;
+  <span class="hljs-keyword">end</span>;
 
-<span class="token keyword keyword-procedure">procedure</span> TfrmMain<span class="token punctuation">.</span>Start<span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> APort<span class="token punctuation">:</span> Integer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-begin">begin</span>
-  FServer<span class="token punctuation">.</span>Bindings<span class="token punctuation">.</span>Clear<span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span>
+  frmMain: TfrmMain;
 
-  <span class="token keyword keyword-with">with</span> FServer<span class="token punctuation">.</span>Bindings<span class="token punctuation">.</span>Add <span class="token keyword keyword-do">do</span>
-  <span class="token keyword keyword-begin">begin</span>
-    IP <span class="token operator">:=</span> <span class="token string">'0.0.0.0'</span><span class="token punctuation">;</span>
-    Port <span class="token operator">:=</span> APort<span class="token punctuation">;</span>
-  <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">implementation</span>
 
-  FServer<span class="token punctuation">.</span>OnCommandGet <span class="token operator">:=</span> TriggerCommandGet<span class="token punctuation">;</span>
-  FServer<span class="token punctuation">.</span>Active <span class="token operator">:=</span> <span class="token keyword keyword-True">True</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+<span class="hljs-meta">{$R *.dfm}</span>
 
-<span class="token keyword keyword-procedure">procedure</span> TfrmMain<span class="token punctuation">.</span>Stop<span class="token punctuation">;</span>
-<span class="token keyword keyword-begin">begin</span>
-  FServer<span class="token punctuation">.</span>Active <span class="token operator">:=</span> <span class="token keyword keyword-False">False</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">uses</span>
+  Winapi.ShellAPI;
 
-<span class="token keyword keyword-procedure">procedure</span> TfrmMain<span class="token punctuation">.</span>TriggerCommandGet<span class="token punctuation">(</span>AContext<span class="token punctuation">:</span> TIdContext<span class="token punctuation">;</span>
-  ARequestInfo<span class="token punctuation">:</span> TIdHTTPRequestInfo<span class="token punctuation">;</span> AResponseInfo<span class="token punctuation">:</span> TIdHTTPResponseInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-begin">begin</span>
-  <span class="token keyword keyword-if">if</span> SameText<span class="token punctuation">(</span>ARequestInfo<span class="token punctuation">.</span>URI<span class="token punctuation">,</span> <span class="token string">'/hello'</span><span class="token punctuation">)</span> <span class="token keyword keyword-then">then</span>
-  <span class="token keyword keyword-begin">begin</span>
-    AResponseInfo<span class="token punctuation">.</span>ContentType <span class="token operator">:=</span> <span class="token string">'application/json'</span><span class="token punctuation">;</span>
-    AResponseInfo<span class="token punctuation">.</span>ContentText <span class="token operator">:=</span> <span class="token string">'{"response": "Hello, world"}'</span><span class="token punctuation">;</span>
-  <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
-</code></pre><h4 id="24-기본-서버-구현">2.4 기본 서버 구현 </h4>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span> <span class="hljs-title">TfrmMain</span>.<span class="hljs-title">Create</span><span class="hljs-params">(AOwner: TComponent)</span>;</span>
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-keyword">inherited</span>;
+
+  FServer := TIdHttpServer.Create(Self);
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">destructor</span> <span class="hljs-title">TfrmMain</span>.<span class="hljs-title">Destroy</span>;</span>
+<span class="hljs-keyword">begin</span>
+  FServer.Active := False;
+  FServer.Free;
+
+  <span class="hljs-keyword">inherited</span>;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">TfrmMain</span>.<span class="hljs-title">btnExecuteClick</span><span class="hljs-params">(Sender: TObject)</span>;</span>
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-keyword">var</span> LURL := Format(<span class="hljs-string">'http://localhost:%d/hello'</span>, [FServer.Bindings[<span class="hljs-number">0</span>].Port]);
+  ShellExecute(<span class="hljs-number">0</span>, <span class="hljs-string">'open'</span>, PChar(LURL), <span class="hljs-keyword">nil</span>, <span class="hljs-keyword">nil</span>, SW_SHOW);
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">TfrmMain</span>.<span class="hljs-title">btnStartClick</span><span class="hljs-params">(Sender: TObject)</span>;</span>
+<span class="hljs-keyword">begin</span>
+  Start;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">TfrmMain</span>.<span class="hljs-title">btnStopClick</span><span class="hljs-params">(Sender: TObject)</span>;</span>
+<span class="hljs-keyword">begin</span>
+  Stop;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">TfrmMain</span>.<span class="hljs-title">Start</span><span class="hljs-params">(<span class="hljs-keyword">const</span> APort: Integer)</span>;</span>
+<span class="hljs-keyword">begin</span>
+  FServer.Bindings.Clear;
+
+  <span class="hljs-keyword">with</span> FServer.Bindings.Add <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">begin</span>
+    IP := <span class="hljs-string">'0.0.0.0'</span>;
+    Port := APort;
+  <span class="hljs-keyword">end</span>;
+
+  FServer.OnCommandGet := TriggerCommandGet;
+  FServer.Active := True;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">TfrmMain</span>.<span class="hljs-title">Stop</span>;</span>
+<span class="hljs-keyword">begin</span>
+  FServer.Active := False;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">TfrmMain</span>.<span class="hljs-title">TriggerCommandGet</span><span class="hljs-params">(AContext: TIdContext;
+  ARequestInfo: TIdHTTPRequestInfo; AResponseInfo: TIdHTTPResponseInfo)</span>;</span>
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-keyword">if</span> SameText(ARequestInfo.URI, <span class="hljs-string">'/hello'</span>) <span class="hljs-keyword">then</span>
+  <span class="hljs-keyword">begin</span>
+    AResponseInfo.ContentType := <span class="hljs-string">'application/json'</span>;
+    AResponseInfo.ContentText := <span class="hljs-string">'{"response": "Hello, world"}'</span>;
+  <span class="hljs-keyword">end</span>;
+<span class="hljs-keyword">end</span>;
+</div></code></pre>
+<h4 id="24-%EA%B8%B0%EB%B3%B8-%EC%84%9C%EB%B2%84-%EA%B5%AC%ED%98%84">2.4 기본 서버 구현</h4>
 <p>가장 기본이 되는 서버를 구현해 보면서 라우터의 사용법에 대해 익힌다.</p>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> BasicServer<span class="token punctuation">;</span>
+<pre class="hljs"><code><div><span class="hljs-keyword">program</span> BasicServer;
 
-<span class="token keyword keyword-uses">uses</span> 
-  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">;</span>
+<span class="hljs-keyword">uses</span> 
+  System.SysUtils,
+  Horse;
 
-<span class="token keyword keyword-begin">begin</span>
-  <span class="token comment">// 라우터에 등록한다</span>
-  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/hello'</span><span class="token punctuation">,</span> 
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-begin">begin</span>
-      Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-comment">// 라우터에 등록한다</span>
+  THorse.Get(<span class="hljs-string">'/hello'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">begin</span>
+      <span class="hljs-title">Res</span>.<span class="hljs-title">Send</span><span class="hljs-params">(<span class="hljs-string">'Hello World!'</span>)</span>;</span>
+    <span class="hljs-keyword">end</span>);
   
-  <span class="token comment">// 9000번 포트를 리스닝한다</span>
-  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
-</code></pre><h3 id="3-미들웨어"><strong>3. 미들웨어</strong> </h3>
-<h4 id="31-미들웨어란">3.1 미들웨어란? </h4>
+  <span class="hljs-comment">// 9000번 포트를 리스닝한다</span>
+  THorse.Listen(<span class="hljs-number">9000</span>);
+<span class="hljs-keyword">end</span>.
+</div></code></pre>
+<h3 id="3-%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4"><strong>3. 미들웨어</strong></h3>
+<h4 id="31-%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4%EB%9E%80">3.1 미들웨어란?</h4>
 <ul>
 <li>요청-응답 사이클에서의 중간 처리</li>
 <li>공식 미들웨어
@@ -341,50 +729,51 @@ MARS와 WiRL은 같은 뿌리에서 나온 것으로 보이는데 MARS가 구현
 </ul>
 </li>
 </ul>
-<h4 id="32-미들웨어-사용해보기">3.2 미들웨어 사용해보기 </h4>
-<h5 id="321-json-미들웨어">3.2.1 JSON 미들웨어 </h5>
+<h4 id="32-%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0">3.2 미들웨어 사용해보기</h4>
+<h5 id="321-json-%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4">3.2.1 JSON 미들웨어</h5>
 <p>JSON 미들웨어는 웹 서버나 API 서버에서 JSON 데이터를 자동으로 파싱하고 처리하는 중간 계층(middleware) 소프트웨어입니다.</p>
 <p><strong>JSON 미들웨어의 역할</strong></p>
 <ul>
-<li>요청 처리<br>
-HTTP 요청 본문의 JSON을 자동 파싱<br>
-Content-Type 검증 (application/json)<br>
+<li>요청 처리
+HTTP 요청 본문의 JSON을 자동 파싱
+Content-Type 검증 (application/json)
 파싱 에러 처리</li>
-<li>응답 처리<br>
-객체를 JSON으로 자동 직렬화<br>
-적절한 Content-Type 헤더 설정<br>
+<li>응답 처리
+객체를 JSON으로 자동 직렬화
+적절한 Content-Type 헤더 설정
 JSON 포맷팅 (들여쓰기, 압축 등)</li>
 </ul>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware01<span class="token punctuation">;</span>
+<pre class="hljs"><code><div><span class="hljs-keyword">program</span> Middlware01;
 
-<span class="token directive marco property">{$APPTYPE CONSOLE}</span>
+<span class="hljs-meta">{$APPTYPE CONSOLE}</span>
 
-<span class="token keyword keyword-uses">uses</span>
-  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
-  System<span class="token punctuation">.</span>JSON<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">;</span>
+<span class="hljs-keyword">uses</span>
+  System.SysUtils,
+  System.JSON,
+  Horse,
+  Horse.Jhonson;
 
-<span class="token keyword keyword-begin">begin</span>
-  <span class="token comment">// 미들웨어 등록</span>
-  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Jhonson<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-comment">// 미들웨어 등록</span>
+  THorse.Use(Jhonson());
 
-  <span class="token comment">// 라우터에 등록한다</span>
-  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/hello'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-var">var</span>
-      LResult<span class="token punctuation">:</span> TJSONObject<span class="token punctuation">;</span>
-    <span class="token keyword keyword-begin">begin</span>
-      LResult <span class="token operator">:=</span> TJSONObject<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
-      LResult<span class="token punctuation">.</span>AddPair<span class="token punctuation">(</span><span class="token string">'response'</span><span class="token punctuation">,</span> <span class="token string">'Hello, World'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      Res<span class="token punctuation">.</span>Send<span class="token operator">&lt;</span>TJSONObject<span class="token operator">&gt;</span><span class="token punctuation">(</span>LResult<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="hljs-comment">// 라우터에 등록한다</span>
+  THorse.Get(<span class="hljs-string">'/hello'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">var</span>
+      <span class="hljs-title">LResult</span>:</span> TJSONObject;
+    <span class="hljs-keyword">begin</span>
+      LResult := TJSONObject.Create;
+      LResult.AddPair(<span class="hljs-string">'response'</span>, <span class="hljs-string">'Hello, World'</span>);
+      Res.Send&lt;TJSONObject&gt;(LResult);
+    <span class="hljs-keyword">end</span>);
 
-  <span class="token comment">// 9000번 포트를 리스닝한다</span>
-  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
-</code></pre><h5 id="322-basic-auth">3.2.2 basic-auth </h5>
-<p>Basic Authentication은 HTTP 프로토콜에서 가장 기본적인 인증 방식입니다.<br>
+  <span class="hljs-comment">// 9000번 포트를 리스닝한다</span>
+  THorse.Listen(<span class="hljs-number">9000</span>);
+<span class="hljs-keyword">end</span>.
+</div></code></pre>
+<h5 id="322-basic-auth">3.2.2 basic-auth</h5>
+<p>Basic Authentication은 HTTP 프로토콜에서 가장 기본적인 인증 방식입니다.
 Basic Authentication 동작 원리</p>
 <ol>
 <li>인코딩 방식</li>
@@ -394,12 +783,14 @@ Basic Authentication 동작 원리</p>
 <li>Base64로 인코딩</li>
 <li>HTTP 헤더에 포함하여 전송</li>
 </ul>
-<pre data-role="codeBlock" data-info="text" class="language-text text"><code>username:password → Base64 인코딩 → dXNlcm5hbWU6cGFzc3dvcmQ=
-</code></pre><ol start="2">
+<pre class="hljs"><code><div>username:password → Base64 인코딩 → dXNlcm5hbWU6cGFzc3dvcmQ=
+</div></code></pre>
+<ol start="2">
 <li>HTTP 헤더 형식</li>
 </ol>
-<pre data-role="codeBlock" data-info="text" class="language-text text"><code>Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
-</code></pre><ol start="3">
+<pre class="hljs"><code><div>Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+</div></code></pre>
+<ol start="3">
 <li>보안 고려사항</li>
 </ol>
 <p><strong>장점:</strong></p>
@@ -414,52 +805,54 @@ Basic Authentication 동작 원리</p>
 <li>매 요청마다 인증 정보 전송</li>
 <li>브라우저에 패스워드 저장 위험</li>
 </ul>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware02<span class="token punctuation">;</span>
+<pre class="hljs"><code><div><span class="hljs-keyword">program</span> Middlware02;
 
-<span class="token directive marco property">{$APPTYPE CONSOLE}</span>
+<span class="hljs-meta">{$APPTYPE CONSOLE}</span>
 
-<span class="token keyword keyword-uses">uses</span>
-  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
-  System<span class="token punctuation">.</span>JSON<span class="token punctuation">,</span>
+<span class="hljs-keyword">uses</span>
+  System.SysUtils,
+  System.JSON,
 
-  Horse<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">.</span>BasicAuthentication<span class="token punctuation">;</span>
+  Horse,
+  Horse.Jhonson,
+  Horse.BasicAuthentication;
 
-<span class="token keyword keyword-begin">begin</span>
-  <span class="token comment">// 미들웨어 등록</span>
-  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Jhonson<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-comment">// 미들웨어 등록</span>
+  THorse.Use(Jhonson());
 
-  <span class="token comment">// BasicAuth를 처리하기 위한 미들웨어</span>
-  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>HorseBasicAuthentication<span class="token punctuation">(</span>
-    <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> AUsername<span class="token punctuation">,</span> APassword<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Boolean
-    <span class="token keyword keyword-begin">begin</span>
-      <span class="token keyword keyword-Result">Result</span> <span class="token operator">:=</span> AUsername<span class="token punctuation">.</span>Equals<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span> <span class="token operator">and</span> APassword<span class="token punctuation">.</span>Equals<span class="token punctuation">(</span><span class="token string">'password'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="hljs-comment">// BasicAuth를 처리하기 위한 미들웨어</span>
+  THorse.Use(HorseBasicAuthentication(
+    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(<span class="hljs-keyword">const</span> AUsername, APassword: <span class="hljs-keyword">string</span>)</span>:</span> Boolean
+    <span class="hljs-keyword">begin</span>
+      Result := AUsername.Equals(<span class="hljs-string">'user'</span>) <span class="hljs-keyword">and</span> APassword.Equals(<span class="hljs-string">'password'</span>);
+    <span class="hljs-keyword">end</span>));
 
-  <span class="token comment">// 라우터에 등록한다</span>
-  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/hello'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-var">var</span>
-      LResult<span class="token punctuation">:</span> TJSONObject<span class="token punctuation">;</span>
-    <span class="token keyword keyword-begin">begin</span>
-      LResult <span class="token operator">:=</span> TJSONObject<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
-      LResult<span class="token punctuation">.</span>AddPair<span class="token punctuation">(</span><span class="token string">'response'</span><span class="token punctuation">,</span> <span class="token string">'Hello, World'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      Res<span class="token punctuation">.</span>Send<span class="token operator">&lt;</span>TJSONObject<span class="token operator">&gt;</span><span class="token punctuation">(</span>LResult<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="hljs-comment">// 라우터에 등록한다</span>
+  THorse.Get(<span class="hljs-string">'/hello'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">var</span>
+      <span class="hljs-title">LResult</span>:</span> TJSONObject;
+    <span class="hljs-keyword">begin</span>
+      LResult := TJSONObject.Create;
+      LResult.AddPair(<span class="hljs-string">'response'</span>, <span class="hljs-string">'Hello, World'</span>);
+      Res.Send&lt;TJSONObject&gt;(LResult);
+    <span class="hljs-keyword">end</span>);
 
-  <span class="token comment">// 9000번 포트를 리스닝한다</span>
-  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
-</code></pre><p>브라우저에서 테스트 하기</p>
-<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://user:password@localhost:9000/hello
-</code></pre><h5 id="323-cors">3.2.3 cors </h5>
+  <span class="hljs-comment">// 9000번 포트를 리스닝한다</span>
+  THorse.Listen(<span class="hljs-number">9000</span>);
+<span class="hljs-keyword">end</span>.
+</div></code></pre>
+<p>브라우저에서 테스트 하기</p>
+<pre class="hljs"><code><div>http://user:password@localhost:9000/hello
+</div></code></pre>
+<h5 id="323-cors">3.2.3 cors</h5>
 <p>CORS(Cross-Origin Resource Sharing)는 웹 브라우저의 Same-Origin Policy(동일 출처 정책) 제한을 우회하기 위해 사용됩니다.</p>
-<p><strong>Same-Origin Policy란?</strong><br>
+<p><strong>Same-Origin Policy란?</strong>
 웹 브라우저는 보안상 이유로 다음 조건이 모두 같은 경우에만 리소스 접근을 허용합니다:</p>
 <ul>
 <li>프로토콜 (http/https)</li>
-<li>도메인 (<a href="http://example.com">example.com</a>)</li>
+<li>도메인 (example.com)</li>
 <li>포트 (80, 443, 8080 등)</li>
 </ul>
 <p><strong>CORS 동작 과정</strong></p>
@@ -475,55 +868,56 @@ Basic Authentication 동작 원리</p>
 <li>설정: 필요한 origin만 정확히 허용해야 함</li>
 </ul>
 <p>CORS는 웹 브라우저에서만 적용되는 정책이므로, 데스크톱 애플리케이션이나 서버 간 통신에는 영향을 주지 않습니다.</p>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware03<span class="token punctuation">;</span>
+<pre class="hljs"><code><div><span class="hljs-keyword">program</span> Middlware03;
 
-<span class="token directive marco property">{$APPTYPE CONSOLE}</span>
+<span class="hljs-meta">{$APPTYPE CONSOLE}</span>
 
-<span class="token keyword keyword-uses">uses</span>
-  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
-  System<span class="token punctuation">.</span>JSON<span class="token punctuation">,</span>
+<span class="hljs-keyword">uses</span>
+  System.SysUtils,
+  System.JSON,
 
-  Horse<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">.</span>BasicAuthentication<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">.</span>CORS<span class="token punctuation">;</span>
+  Horse,
+  Horse.Jhonson,
+  Horse.BasicAuthentication,
+  Horse.CORS;
 
-<span class="token keyword keyword-begin">begin</span>
-  <span class="token comment">// 미들웨어 등록</span>
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-comment">// 미들웨어 등록</span>
   HorseCORS
-    <span class="token punctuation">.</span>AllowedOrigin<span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span>AllowedCredentials<span class="token punctuation">(</span><span class="token keyword keyword-true">true</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span>AllowedHeaders<span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span>AllowedMethods<span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span>ExposedHeaders<span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    .AllowedOrigin(<span class="hljs-string">'*'</span>)
+    .AllowedCredentials(true)
+    .AllowedHeaders(<span class="hljs-string">'*'</span>)
+    .AllowedMethods(<span class="hljs-string">'*'</span>)
+    .ExposedHeaders(<span class="hljs-string">'*'</span>);
 
-  <span class="token comment">// It's necessary to add the middleware in the Horse:</span>
-  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>CORS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="hljs-comment">// It's necessary to add the middleware in the Horse:</span>
+  THorse.Use(CORS);
 
-  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Jhonson<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  THorse.Use(Jhonson());
 
-  <span class="token comment">// BasicAuth를 처리하기 위한 미들웨어</span>
-  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>HorseBasicAuthentication<span class="token punctuation">(</span>
-    <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> AUsername<span class="token punctuation">,</span> APassword<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Boolean
-    <span class="token keyword keyword-begin">begin</span>
-      <span class="token keyword keyword-Result">Result</span> <span class="token operator">:=</span> AUsername<span class="token punctuation">.</span>Equals<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span> <span class="token operator">and</span> APassword<span class="token punctuation">.</span>Equals<span class="token punctuation">(</span><span class="token string">'password'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="hljs-comment">// BasicAuth를 처리하기 위한 미들웨어</span>
+  THorse.Use(HorseBasicAuthentication(
+    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(<span class="hljs-keyword">const</span> AUsername, APassword: <span class="hljs-keyword">string</span>)</span>:</span> Boolean
+    <span class="hljs-keyword">begin</span>
+      Result := AUsername.Equals(<span class="hljs-string">'user'</span>) <span class="hljs-keyword">and</span> APassword.Equals(<span class="hljs-string">'password'</span>);
+    <span class="hljs-keyword">end</span>));
 
-  <span class="token comment">// 라우터에 등록한다</span>
-  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/hello'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-var">var</span>
-      LResult<span class="token punctuation">:</span> TJSONObject<span class="token punctuation">;</span>
-    <span class="token keyword keyword-begin">begin</span>
-      LResult <span class="token operator">:=</span> TJSONObject<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
-      LResult<span class="token punctuation">.</span>AddPair<span class="token punctuation">(</span><span class="token string">'response'</span><span class="token punctuation">,</span> <span class="token string">'Hello, World'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      Res<span class="token punctuation">.</span>Send<span class="token operator">&lt;</span>TJSONObject<span class="token operator">&gt;</span><span class="token punctuation">(</span>LResult<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="hljs-comment">// 라우터에 등록한다</span>
+  THorse.Get(<span class="hljs-string">'/hello'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">var</span>
+      <span class="hljs-title">LResult</span>:</span> TJSONObject;
+    <span class="hljs-keyword">begin</span>
+      LResult := TJSONObject.Create;
+      LResult.AddPair(<span class="hljs-string">'response'</span>, <span class="hljs-string">'Hello, World'</span>);
+      Res.Send&lt;TJSONObject&gt;(LResult);
+    <span class="hljs-keyword">end</span>);
 
-  <span class="token comment">// 9000번 포트를 리스닝한다</span>
-  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
-</code></pre><h5 id="324-stream">3.2.4 stream </h5>
+  <span class="hljs-comment">// 9000번 포트를 리스닝한다</span>
+  THorse.Listen(<span class="hljs-number">9000</span>);
+<span class="hljs-keyword">end</span>.
+</div></code></pre>
+<h5 id="324-stream">3.2.4 stream</h5>
 <p>Stream을 다루기 위한 공식 미들웨어입니다. 이 미들웨어를 사용하면 웹 API에서 파일이나 바이너리 데이터를 스트림으로 전송할 수 있습니다.</p>
 <p>주요 특징</p>
 <ul>
@@ -532,78 +926,82 @@ Basic Authentication 동작 원리</p>
 <li>Content-Type 설정: 파일 형식에 맞는 MIME 타입 자동 설정</li>
 <li>MIT 라이선스: 무료 오픈소스</li>
 </ul>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware04<span class="token punctuation">;</span>
+<pre class="hljs"><code><div><span class="hljs-keyword">program</span> Middlware04;
 
-<span class="token directive marco property">{$APPTYPE CONSOLE}</span>
+<span class="hljs-meta">{$APPTYPE CONSOLE}</span>
 
-<span class="token keyword keyword-uses">uses</span>
-  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
-  System<span class="token punctuation">.</span>Classes<span class="token punctuation">,</span>
-  System<span class="token punctuation">.</span>IOUtils<span class="token punctuation">,</span>
+<span class="hljs-keyword">uses</span>
+  System.SysUtils,
+  System.Classes,
+  System.IOUtils,
 
-  Horse<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">.</span>OctetStream<span class="token punctuation">;</span>
+  Horse,
+  Horse.OctetStream;
 
-<span class="token keyword keyword-begin">begin</span>
-  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>OctetStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">begin</span>
+  THorse.Use(OctetStream);
 
-  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/stream'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-var">var</span>
-      LStream<span class="token punctuation">:</span> TFileStream<span class="token punctuation">;</span>
-    <span class="token keyword keyword-begin">begin</span>
-      LStream <span class="token operator">:=</span> TFileStream<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>ExtractFilePath<span class="token punctuation">(</span>ParamStr<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'horse.pdf'</span><span class="token punctuation">,</span> fmOpenRead<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      Res<span class="token punctuation">.</span>Send<span class="token operator">&lt;</span>TStream<span class="token operator">&gt;</span><span class="token punctuation">(</span>LStream<span class="token punctuation">)</span><span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/pdf'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  THorse.Get(<span class="hljs-string">'/stream'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">var</span>
+      <span class="hljs-title">LStream</span>:</span> TFileStream;
+    <span class="hljs-keyword">begin</span>
+      LStream := TFileStream.Create(ExtractFilePath(ParamStr(<span class="hljs-number">0</span>)) + <span class="hljs-string">'horse.pdf'</span>, fmOpenRead);
+      Res.Send&lt;TStream&gt;(LStream).ContentType(<span class="hljs-string">'application/pdf'</span>);
+    <span class="hljs-keyword">end</span>);
 
-  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/download/:filename'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-var">var</span>
-      LPath<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">;</span>
-      LStream<span class="token punctuation">:</span> TFileStream<span class="token punctuation">;</span>
-    <span class="token keyword keyword-begin">begin</span>
-      LPath <span class="token operator">:=</span> TPath<span class="token punctuation">.</span>Combine<span class="token punctuation">(</span>ExtractFilePath<span class="token punctuation">(</span>ParamStr<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Req<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">'filename'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword keyword-if">if</span> TFile<span class="token punctuation">.</span>Exists<span class="token punctuation">(</span>LPath<span class="token punctuation">)</span> <span class="token keyword keyword-then">then</span>
-      <span class="token keyword keyword-begin">begin</span>
-        LStream <span class="token operator">:=</span> TFileStream<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>LPath<span class="token punctuation">,</span> fmOpenRead<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Res<span class="token punctuation">.</span>Send<span class="token operator">&lt;</span>TStream<span class="token operator">&gt;</span><span class="token punctuation">(</span>LStream<span class="token punctuation">)</span><span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/pdf'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword keyword-end">end</span>
-      <span class="token keyword keyword-else">else</span>
-      <span class="token keyword keyword-begin">begin</span>
-        Res<span class="token punctuation">.</span>Status<span class="token punctuation">(</span>THTTPStatus<span class="token punctuation">.</span>NotFound<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  THorse.Get(<span class="hljs-string">'/download/:filename'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">var</span>
+      <span class="hljs-title">LPath</span>:</span> <span class="hljs-keyword">string</span>;
+      LStream: TFileStream;
+    <span class="hljs-keyword">begin</span>
+      LPath := TPath.Combine(ExtractFilePath(ParamStr(<span class="hljs-number">0</span>)), Req.Params[<span class="hljs-string">'filename'</span>]);
+      <span class="hljs-keyword">if</span> TFile.Exists(LPath) <span class="hljs-keyword">then</span>
+      <span class="hljs-keyword">begin</span>
+        LStream := TFileStream.Create(LPath, fmOpenRead);
+        Res.Send&lt;TStream&gt;(LStream).ContentType(<span class="hljs-string">'application/pdf'</span>);
+      <span class="hljs-keyword">end</span>
+      <span class="hljs-keyword">else</span>
+      <span class="hljs-keyword">begin</span>
+        Res.Status(THTTPStatus.NotFound);
+      <span class="hljs-keyword">end</span>;
+    <span class="hljs-keyword">end</span>);
 
-  <span class="token comment">// 9000번 포트를 리스닝한다</span>
-  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
-</code></pre><h5 id="325-jwt">3.2.5 jwt </h5>
-<p>JWT란?<br>
+  <span class="hljs-comment">// 9000번 포트를 리스닝한다</span>
+  THorse.Listen(<span class="hljs-number">9000</span>);
+<span class="hljs-keyword">end</span>.
+</div></code></pre>
+<h5 id="325-jwt">3.2.5 jwt</h5>
+<p>JWT란?
 JWT는 당사자 간에 정보를 JSON 객체로 안전하게 전송하기 위한 개방형 표준(RFC 7519)입니다. 주로 **인증(Authentication)**과 정보 교환에 사용됩니다.</p>
-<p>JWT 구조<br>
+<p>JWT 구조
 JWT는 점(.)으로 구분된 세 부분으로 구성됩니다:</p>
-<pre data-role="codeBlock" data-info="text" class="language-text text"><code>Header.Payload.Signature
-</code></pre><p>1.Header (헤더)</p>
+<pre class="hljs"><code><div>Header.Payload.Signature
+</div></code></pre>
+<p>1.Header (헤더)</p>
 <ul>
 <li>토큰 타입(JWT)과 해싱 알고리즘 정보</li>
 <li>Base64Url로 인코딩</li>
 </ul>
-<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
-  <span class="token property">"alg"</span><span class="token operator">:</span> <span class="token string">"HS256"</span><span class="token punctuation">,</span>
-  <span class="token property">"typ"</span><span class="token operator">:</span> <span class="token string">"JWT"</span>
-<span class="token punctuation">}</span>
-</code></pre><p>2.Payload (페이로드)</p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"alg"</span>: <span class="hljs-string">"HS256"</span>,
+  <span class="hljs-attr">"typ"</span>: <span class="hljs-string">"JWT"</span>
+}
+</div></code></pre>
+<p>2.Payload (페이로드)</p>
 <ul>
 <li>실제 전송할 데이터(클레임)</li>
 <li>사용자 정보, 권한, 만료시간 등</li>
 </ul>
-<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
-  <span class="token property">"sub"</span><span class="token operator">:</span> <span class="token string">"1234567890"</span><span class="token punctuation">,</span>
-  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"John Doe"</span><span class="token punctuation">,</span>
-  <span class="token property">"iat"</span><span class="token operator">:</span> <span class="token number">1516239022</span><span class="token punctuation">,</span>
-  <span class="token property">"exp"</span><span class="token operator">:</span> <span class="token number">1516242622</span>
-<span class="token punctuation">}</span>
-</code></pre><p>3.Signature (서명)</p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"sub"</span>: <span class="hljs-string">"1234567890"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"John Doe"</span>,
+  <span class="hljs-attr">"iat"</span>: <span class="hljs-number">1516239022</span>,
+  <span class="hljs-attr">"exp"</span>: <span class="hljs-number">1516242622</span>
+}
+</div></code></pre>
+<p>3.Signature (서명)</p>
 <ul>
 <li>토큰의 무결성 검증</li>
 <li>Header + Payload + Secret Key로 생성</li>
@@ -635,68 +1033,71 @@ JWT는 점(.)으로 구분된 세 부분으로 구성됩니다:</p>
 <li>SSO(Single Sign-On): 여러 서비스 간 인증 공유</li>
 </ul>
 <p>JWT는 현대 웹 애플리케이션에서 표준적으로 사용되는 인증 방식으로, REST API나 마이크로서비스 아키텍처에서 특히 유용합니다.</p>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span> 
-  Horse<span class="token punctuation">,</span> 
-  Horse<span class="token punctuation">.</span>JWT<span class="token punctuation">;</span>
+<pre class="hljs"><code><div><span class="hljs-keyword">uses</span> 
+  Horse, 
+  Horse.JWT;
 
-<span class="token keyword keyword-begin">begin</span>
-  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>HorseJWT<span class="token punctuation">(</span><span class="token string">'MY-PASSWORD'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="hljs-keyword">begin</span>
+  THorse.Use(HorseJWT(<span class="hljs-string">'MY-PASSWORD'</span>)); 
 
-  THorse<span class="token punctuation">.</span>Post<span class="token punctuation">(</span><span class="token string">'ping'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-begin">begin</span>
-      Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span><span class="token string">'pong'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  THorse.Post(<span class="hljs-string">'ping'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">begin</span>
+      <span class="hljs-title">Res</span>.<span class="hljs-title">Send</span><span class="hljs-params">(<span class="hljs-string">'pong'</span>)</span>;</span>
+    <span class="hljs-keyword">end</span>);
 
-  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
-</code></pre><h5 id="326-exception">3.2.6 exception </h5>
+  THorse.Listen(<span class="hljs-number">9000</span>);
+<span class="hljs-keyword">end</span>.
+</div></code></pre>
+<h5 id="326-exception">3.2.6 exception</h5>
 <p>Handle-exception은 Horse 프레임워크에서 예외를 처리하기 위한 공식 미들웨어입니다. 이 미들웨어는 API에서 발생하는 예외를 자동으로 캐치하고, 클라이언트에게 적절한 JSON 형태의 오류 응답을 반환합니다.</p>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span> 
-  Horse<span class="token punctuation">,</span> 
-  Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span> <span class="token comment">// It's necessary to use the unit</span>
-  Horse<span class="token punctuation">.</span>HandleException<span class="token punctuation">,</span> <span class="token comment">// It's necessary to use the unit</span>
-  System<span class="token punctuation">.</span>JSON<span class="token punctuation">;</span>
+<pre class="hljs"><code><div><span class="hljs-keyword">uses</span> 
+  Horse, 
+  Horse.Jhonson, <span class="hljs-comment">// It's necessary to use the unit</span>
+  Horse.HandleException, <span class="hljs-comment">// It's necessary to use the unit</span>
+  System.JSON;
 
-<span class="token keyword keyword-begin">begin</span>
-  <span class="token comment">// It's necessary to add the middlewares in the Horse:</span>
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-comment">// It's necessary to add the middlewares in the Horse:</span>
   THorse
-    <span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Jhonson<span class="token punctuation">)</span> <span class="token comment">// It has to be before the exceptions middleware</span>
-    <span class="token punctuation">.</span>Use<span class="token punctuation">(</span>HandleException<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    .Use(Jhonson) <span class="hljs-comment">// It has to be before the exceptions middleware</span>
+    .Use(HandleException);
 
-  THorse<span class="token punctuation">.</span>Post<span class="token punctuation">(</span><span class="token string">'/ping'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-begin">begin</span>
-      <span class="token comment">// Manage your exceptions:</span>
-      <span class="token keyword keyword-raise">raise</span> EHorseException<span class="token punctuation">.</span><span class="token keyword keyword-New">New</span><span class="token punctuation">.</span>Error<span class="token punctuation">(</span><span class="token string">'My Error!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  THorse.Post(<span class="hljs-string">'/ping'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">begin</span>
+      <span class="hljs-comment">// Manage your exceptions:</span>
+      <span class="hljs-title">raise</span> <span class="hljs-title">EHorseException</span>.<span class="hljs-title">New</span>.<span class="hljs-title">Error</span><span class="hljs-params">(<span class="hljs-string">'My Error!'</span>)</span>;</span>
+    <span class="hljs-keyword">end</span>);
 
-  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
-</code></pre><h5 id="327-logger">3.2.7 logger </h5>
+  THorse.Listen(<span class="hljs-number">9000</span>);
+<span class="hljs-keyword">end</span>.
+</div></code></pre>
+<h5 id="327-logger">3.2.7 logger</h5>
 <p>개발된 API의 로그를 등록하기 위한 공식 미들웨어입니다. 이 미들웨어는 HTTP 요청과 응답에 대한 접근 로그를 자동으로 기록하여 API의 모니터링과 디버깅을 지원합니다.</p>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span> 
-  Horse<span class="token punctuation">,</span> 
-  Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span> <span class="token comment">// It's necessary to use the unit</span>
-  Horse<span class="token punctuation">.</span>HandleException<span class="token punctuation">,</span> <span class="token comment">// It's necessary to use the unit</span>
+<pre class="hljs"><code><div><span class="hljs-keyword">uses</span> 
+  Horse, 
+  Horse.Jhonson, <span class="hljs-comment">// It's necessary to use the unit</span>
+  Horse.HandleException, <span class="hljs-comment">// It's necessary to use the unit</span>
 
-<span class="token keyword keyword-begin">begin</span>
-  THorse<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-begin">begin</span>
-      Writeln<span class="token punctuation">(</span>Format<span class="token punctuation">(</span><span class="token string">'[%s] %s %s'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
-        FormatDateTime<span class="token punctuation">(</span><span class="token string">'yyyy-mm-dd hh:nn:ss'</span><span class="token punctuation">,</span> Now<span class="token punctuation">)</span><span class="token punctuation">,</span>
-        Req<span class="token punctuation">.</span>Method<span class="token punctuation">,</span>
-        Req<span class="token punctuation">.</span>PathInfo
-      <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      Next<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">begin</span>
+  THorse.Use(
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">begin</span>
+      <span class="hljs-title">Writeln</span><span class="hljs-params">(Format(<span class="hljs-string">'[%s] %s %s'</span>, [
+        FormatDateTime(<span class="hljs-string">'yyyy-mm-dd hh:nn:ss'</span>, Now)</span>,
+        <span class="hljs-title">Req</span>.<span class="hljs-title">Method</span>,
+        <span class="hljs-title">Req</span>.<span class="hljs-title">PathInfo</span>
+      ]));</span>
+      Next();
+    <span class="hljs-keyword">end</span>);
 
-  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
-</code></pre><h5 id="328-compression">3.2.8 compression </h5>
+  THorse.Listen(<span class="hljs-number">9000</span>);
+<span class="hljs-keyword">end</span>.
+</div></code></pre>
+<h5 id="328-compression">3.2.8 compression</h5>
 <p>API의 콘텐츠를 압축하기 위한 공식 미들웨어입니다. 이 미들웨어는 HTTP 응답을 자동으로 압축하여 네트워크 트래픽을 줄이고 전송 속도를 향상시킵니다.</p>
-<p>지원하는 압축 방식<br>
+<p>지원하는 압축 방식
 현재 미들웨어는 DEFLATE와 GZIP을 사용하여 데이터를 압축할 수 있도록 준비되어 있습니다.</p>
 <table>
 <thead>
@@ -719,136 +1120,139 @@ JWT는 점(.)으로 구분된 세 부분으로 구성됩니다:</p>
 </tr>
 </tbody>
 </table>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span>
-  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
-  System<span class="token punctuation">.</span>JSON<span class="token punctuation">,</span>
+<pre class="hljs"><code><div><span class="hljs-keyword">uses</span>
+  System.SysUtils,
+  System.JSON,
 
-  Horse<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">.</span>Compression<span class="token punctuation">;</span>
+  Horse,
+  Horse.Jhonson,
+  Horse.Compression;
 
-<span class="token keyword keyword-begin">begin</span>
+<span class="hljs-keyword">begin</span>
   THorse
-    <span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Compression<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Jhonson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    .Use(Compression())
+    .Use(Jhonson);
 
-  <span class="token comment">// 일정 크기 이상만 압축하도록 설정할 수 있다</span>
-  <span class="token comment">// THorse.Use(Compression(1024));</span>
+  <span class="hljs-comment">// 일정 크기 이상만 압축하도록 설정할 수 있다</span>
+  <span class="hljs-comment">// THorse.Use(Compression(1024));</span>
 
-  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/ping'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-var">var</span>
-      I<span class="token punctuation">:</span> Integer<span class="token punctuation">;</span>
-      LPong<span class="token punctuation">:</span> TJSONArray<span class="token punctuation">;</span>
-    <span class="token keyword keyword-begin">begin</span>
-      LPong <span class="token operator">:=</span> TJSONArray<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
-      <span class="token keyword keyword-for">for</span> I <span class="token operator">:=</span> <span class="token number">0</span> <span class="token keyword keyword-to">to</span> <span class="token number">1000</span> <span class="token keyword keyword-do">do</span>
-        LPong<span class="token punctuation">.</span>Add<span class="token punctuation">(</span>TJSONObject<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>TJSONPair<span class="token punctuation">.</span>Create<span class="token punctuation">(</span><span class="token string">'ping'</span><span class="token punctuation">,</span> <span class="token string">'pong'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span>LPong<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  THorse.Get(<span class="hljs-string">'/ping'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">var</span>
+      <span class="hljs-title">I</span>:</span> Integer;
+      LPong: TJSONArray;
+    <span class="hljs-keyword">begin</span>
+      LPong := TJSONArray.Create;
+      <span class="hljs-keyword">for</span> I := <span class="hljs-number">0</span> <span class="hljs-keyword">to</span> <span class="hljs-number">1000</span> <span class="hljs-keyword">do</span>
+        LPong.Add(TJSONObject.Create(TJSONPair.Create(<span class="hljs-string">'ping'</span>, <span class="hljs-string">'pong'</span>)));
+      Res.Send(LPong);
+    <span class="hljs-keyword">end</span>);
 
-  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
-</code></pre><h3 id="4-데이터베이스-연동-서버"><strong>4. 데이터베이스 연동 서버</strong> </h3>
-<h4 id="41-데이터베이스-및-샘플-데이터-생성">4.1 데이터베이스 및 샘플 데이터 생성 </h4>
-<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-DROP">DROP</span> <span class="token keyword keyword-TABLE">TABLE</span> <span class="token keyword keyword-IF">IF</span> <span class="token keyword keyword-EXISTS">EXISTS</span> users<span class="token punctuation">;</span>
-<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> users <span class="token punctuation">(</span>
-  seq <span class="token keyword keyword-INTEGER">INTEGER</span> <span class="token keyword keyword-AUTO_INCREMENT">AUTO_INCREMENT</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
-  usr_id <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  usr_nm <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  usr_pw <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  usr_lvl <span class="token keyword keyword-INTEGER">INTEGER</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h4 id="42-firedac-연결-풀-만들기">4.2 FireDAC 연결 풀 만들기 </h4>
+  THorse.Listen(<span class="hljs-number">9000</span>);
+<span class="hljs-keyword">end</span>.
+</div></code></pre>
+<h3 id="4-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%97%B0%EB%8F%99-%EC%84%9C%EB%B2%84"><strong>4. 데이터베이스 연동 서버</strong></h3>
+<h4 id="41-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EB%B0%8F-%EC%83%98%ED%94%8C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%83%9D%EC%84%B1">4.1 데이터베이스 및 샘플 데이터 생성</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-keyword">users</span>;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">users</span> (
+  seq <span class="hljs-built_in">INTEGER</span> AUTO_INCREMENT PRIMARY <span class="hljs-keyword">KEY</span>,
+  usr_id <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">12</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+  usr_nm <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+  usr_pw <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+  usr_lvl <span class="hljs-built_in">INTEGER</span>
+);
+</div></code></pre>
+<h4 id="42-firedac-%EC%97%B0%EA%B2%B0-%ED%92%80-%EB%A7%8C%EB%93%A4%EA%B8%B0">4.2 FireDAC 연결 풀 만들기</h4>
 <ul>
 <li>데이터베이스 연결 풀을 사용해야 하는 이유
 <ul>
 <li>성능 저하</li>
 <li>리소스 낭비</li>
-<li>연결 한계 초과시 데이터베이스 성능 저하 또는 다운<br>
-MySQL 기본 max_connections = 151<br>
+<li>연결 한계 초과시 데이터베이스 성능 저하 또는 다운
+MySQL 기본 max_connections = 151
 PostgreSQL 기본 max_connections = 100</li>
 </ul>
 </li>
 <li>FireDAC은 풀링을 기본으로 지원한다</li>
 </ul>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-unit">unit</span> uDBPool<span class="token punctuation">;</span>
+<pre class="hljs"><code><div><span class="hljs-keyword">unit</span> uDBPool;
 
-<span class="token keyword keyword-interface">interface</span>
+<span class="hljs-keyword">interface</span>
 
-<span class="token directive marco property">{$REGION 'USES'}</span>
-<span class="token keyword keyword-uses">uses</span>
-  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
-  System<span class="token punctuation">.</span>Classes<span class="token punctuation">,</span>
-  System<span class="token punctuation">.</span>Generics<span class="token punctuation">.</span>Collections<span class="token punctuation">,</span>
-  System<span class="token punctuation">.</span>NetEncoding<span class="token punctuation">,</span>
+<span class="hljs-meta">{$REGION 'USES'}</span>
+<span class="hljs-keyword">uses</span>
+  System.SysUtils,
+  System.Classes,
+  System.Generics.Collections,
+  System.NetEncoding,
 
-  Data<span class="token punctuation">.</span>DB<span class="token punctuation">,</span>
+  Data.DB,
 
-  FireDAC<span class="token punctuation">.</span>Comp<span class="token punctuation">.</span>UI<span class="token punctuation">,</span>
-  FireDAC<span class="token punctuation">.</span>UI<span class="token punctuation">.</span>Intf<span class="token punctuation">,</span>
-  FireDAC<span class="token punctuation">.</span>VCLUI<span class="token punctuation">.</span>Wait<span class="token punctuation">,</span>
-  FireDAC<span class="token punctuation">.</span>Stan<span class="token punctuation">.</span>Def<span class="token punctuation">,</span>
-  FireDAC<span class="token punctuation">.</span>Stan<span class="token punctuation">.</span>Intf<span class="token punctuation">,</span>
-  FireDAC<span class="token punctuation">.</span>Stan<span class="token punctuation">.</span>Pool<span class="token punctuation">,</span>
-  FireDAC<span class="token punctuation">.</span>Stan<span class="token punctuation">.</span>Async<span class="token punctuation">,</span>
-  FireDAC<span class="token punctuation">.</span>Stan<span class="token punctuation">.</span>Param<span class="token punctuation">,</span>
-  FireDAC<span class="token punctuation">.</span>DApt<span class="token punctuation">,</span>
-  FireDAC<span class="token punctuation">.</span>Phys<span class="token punctuation">.</span>MySQL<span class="token punctuation">,</span>
-  FireDAC<span class="token punctuation">.</span>Comp<span class="token punctuation">.</span>Client<span class="token punctuation">,</span>
-  FireDAC<span class="token punctuation">.</span>Comp<span class="token punctuation">.</span>Script<span class="token punctuation">;</span>
-<span class="token directive marco property">{$ENDREGION}</span>
+  FireDAC.Comp.UI,
+  FireDAC.UI.Intf,
+  FireDAC.VCLUI.Wait,
+  FireDAC.Stan.Def,
+  FireDAC.Stan.Intf,
+  FireDAC.Stan.Pool,
+  FireDAC.Stan.Async,
+  FireDAC.Stan.Param,
+  FireDAC.DApt,
+  FireDAC.Phys.MySQL,
+  FireDAC.Comp.Client,
+  FireDAC.Comp.Script;
+<span class="hljs-meta">{$ENDREGION}</span>
 
-<span class="token keyword keyword-type">type</span>
-  TDatabase <span class="token operator">=</span> <span class="token keyword keyword-class">class</span> sealed
-  <span class="token keyword keyword-strict">strict</span> <span class="token keyword keyword-private">private</span>
-    <span class="token keyword keyword-const">const</span>
-      CONNECTION_NAME <span class="token operator">=</span> <span class="token string">'_pooled_connection_'</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">type</span>
+  TDatabase = <span class="hljs-keyword">class</span> sealed
+  <span class="hljs-keyword">strict</span> <span class="hljs-keyword">private</span>
+    <span class="hljs-keyword">const</span>
+      CONNECTION_NAME = <span class="hljs-string">'_pooled_connection_'</span>;
 
-    <span class="token keyword keyword-class">class</span> <span class="token keyword keyword-constructor">constructor</span> Create<span class="token punctuation">;</span>
-    <span class="token keyword keyword-class">class</span> <span class="token keyword keyword-destructor">destructor</span> Destroy<span class="token punctuation">;</span>
-  <span class="token keyword keyword-public">public</span>
-    <span class="token keyword keyword-class">class</span> <span class="token keyword keyword-function">function</span>  GetConnection<span class="token punctuation">:</span> TFDConnection<span class="token punctuation">;</span> <span class="token keyword keyword-static">static</span><span class="token punctuation">;</span>
-  <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+    <span class="hljs-keyword">class</span> <span class="hljs-function"><span class="hljs-keyword">constructor</span> <span class="hljs-title">Create</span>;</span>
+    <span class="hljs-keyword">class</span> <span class="hljs-function"><span class="hljs-keyword">destructor</span> <span class="hljs-title">Destroy</span>;</span>
+  <span class="hljs-keyword">public</span>
+    <span class="hljs-keyword">class</span> <span class="hljs-function"><span class="hljs-keyword">function</span>  <span class="hljs-title">GetConnection</span>:</span> TFDConnection; <span class="hljs-keyword">static</span>;
+  <span class="hljs-keyword">end</span>;
 
-<span class="token keyword keyword-implementation">implementation</span>
+<span class="hljs-keyword">implementation</span>
 
-<span class="token directive marco property">{$REGION 'TDatabase'}</span>
+<span class="hljs-meta">{$REGION 'TDatabase'}</span>
 
-<span class="token keyword keyword-class">class</span> <span class="token keyword keyword-constructor">constructor</span> TDatabase<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
-<span class="token keyword keyword-begin">begin</span>
-  <span class="token keyword keyword-var">var</span> LParams <span class="token operator">:=</span> TStringList<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
-  <span class="token keyword keyword-try">try</span>
-    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'Server=127.0.0.1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'Port=3306'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'Database=pos_db'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'User_Name=root'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'Password=1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'Pooled=True'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    LParams<span class="token punctuation">.</span>Add<span class="token punctuation">(</span><span class="token string">'CharacterSet=Utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">class</span> <span class="hljs-function"><span class="hljs-keyword">constructor</span> <span class="hljs-title">TDatabase</span>.<span class="hljs-title">Create</span>;</span>
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-keyword">var</span> LParams := TStringList.Create;
+  <span class="hljs-keyword">try</span>
+    LParams.Add(<span class="hljs-string">'Server=127.0.0.1'</span>);
+    LParams.Add(<span class="hljs-string">'Port=3306'</span>);
+    LParams.Add(<span class="hljs-string">'Database=pos_db'</span>);
+    LParams.Add(<span class="hljs-string">'User_Name=root'</span>);
+    LParams.Add(<span class="hljs-string">'Password=1'</span>);
+    LParams.Add(<span class="hljs-string">'Pooled=True'</span>);
+    LParams.Add(<span class="hljs-string">'CharacterSet=Utf8'</span>);
 
-    FDManager<span class="token punctuation">.</span>AddConnectionDef<span class="token punctuation">(</span>CONNECTION_NAME<span class="token punctuation">,</span> <span class="token string">'MySQL'</span><span class="token punctuation">,</span> LParams<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword keyword-finally">finally</span>
-    LParams<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
-  <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+    FDManager.AddConnectionDef(CONNECTION_NAME, <span class="hljs-string">'MySQL'</span>, LParams);
+  <span class="hljs-keyword">finally</span>
+    LParams.Free;
+  <span class="hljs-keyword">end</span>;
+<span class="hljs-keyword">end</span>;
 
-<span class="token keyword keyword-class">class</span> <span class="token keyword keyword-destructor">destructor</span> TDatabase<span class="token punctuation">.</span>Destroy<span class="token punctuation">;</span>
-<span class="token keyword keyword-begin">begin</span>
-  FDManager<span class="token punctuation">.</span>CloseConnectionDef<span class="token punctuation">(</span>CONNECTION_NAME<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">class</span> <span class="hljs-function"><span class="hljs-keyword">destructor</span> <span class="hljs-title">TDatabase</span>.<span class="hljs-title">Destroy</span>;</span>
+<span class="hljs-keyword">begin</span>
+  FDManager.CloseConnectionDef(CONNECTION_NAME);
+<span class="hljs-keyword">end</span>;
 
-<span class="token keyword keyword-class">class</span> <span class="token keyword keyword-function">function</span> TDatabase<span class="token punctuation">.</span>GetConnection<span class="token punctuation">:</span> TFDConnection<span class="token punctuation">;</span>
-<span class="token keyword keyword-begin">begin</span>
-  <span class="token keyword keyword-Result">Result</span> <span class="token operator">:=</span> TFDConnection<span class="token punctuation">.</span>Create<span class="token punctuation">(</span><span class="token keyword keyword-nil">nil</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword keyword-Result">Result</span><span class="token punctuation">.</span>ConnectionDefName <span class="token operator">:=</span> CONNECTION_NAME<span class="token punctuation">;</span>
-  <span class="token keyword keyword-Result">Result</span><span class="token punctuation">.</span>Connected <span class="token operator">:=</span> <span class="token keyword keyword-True">True</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">class</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">TDatabase</span>.<span class="hljs-title">GetConnection</span>:</span> TFDConnection;
+<span class="hljs-keyword">begin</span>
+  Result := TFDConnection.Create(<span class="hljs-keyword">nil</span>);
+  Result.ConnectionDefName := CONNECTION_NAME;
+  Result.Connected := True;
+<span class="hljs-keyword">end</span>;
 
-<span class="token directive marco property">{$ENDREGION}</span>
+<span class="hljs-meta">{$ENDREGION}</span>
 
-<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
-</code></pre><h4 id="43-api-설계">4.3 API 설계 </h4>
+<span class="hljs-keyword">end</span>.
+</div></code></pre>
+<h4 id="43-api-%EC%84%A4%EA%B3%84">4.3 API 설계</h4>
 <table>
 <thead>
 <tr>
@@ -885,343 +1289,300 @@ PostgreSQL 기본 max_connections = 100</li>
 </tr>
 </tbody>
 </table>
-<h4 id="44-구현">4.4 구현 </h4>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> DBServer<span class="token punctuation">;</span>
+<h4 id="44-%EA%B5%AC%ED%98%84">4.4 구현</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">program</span> DBServer;
 
-<span class="token directive marco property">{$APPTYPE CONSOLE}</span>
+<span class="hljs-meta">{$APPTYPE CONSOLE}</span>
 
-<span class="token keyword keyword-uses">uses</span>
-  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
-  System<span class="token punctuation">.</span>Classes<span class="token punctuation">,</span>
-  System<span class="token punctuation">.</span>JSON<span class="token punctuation">,</span>
+<span class="hljs-keyword">uses</span>
+  System.SysUtils,
+  System.Classes,
+  System.JSON,
 
-  Data<span class="token punctuation">.</span>DB<span class="token punctuation">,</span>
-  uDBPool<span class="token punctuation">,</span>
+  Data.DB,
+  uDBPool,
 
-  Horse<span class="token punctuation">;</span>
+  Horse;
 
-<span class="token keyword keyword-begin">begin</span>
-  <span class="token comment">// 전체 조회</span>
-  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-begin">begin</span>
-      <span class="token keyword keyword-var">var</span> LConnection <span class="token operator">:=</span> TDatabase<span class="token punctuation">.</span>GetConnection<span class="token punctuation">;</span>
-      <span class="token keyword keyword-var">var</span> LQuery <span class="token operator">:=</span> LConnection<span class="token punctuation">.</span>GetQuery<span class="token punctuation">;</span>
-      <span class="token keyword keyword-try">try</span>
-        LQuery<span class="token punctuation">.</span>SQL<span class="token punctuation">.</span>Text <span class="token operator">:=</span> '<span class="token string">''</span>
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-comment">// 전체 조회</span>
+  THorse.Get(<span class="hljs-string">'/user'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">begin</span>
+      <span class="hljs-title">var</span> <span class="hljs-title">LConnection</span> :</span>= TDatabase.GetConnection;
+      <span class="hljs-keyword">var</span> LQuery := LConnection.GetQuery;
+      <span class="hljs-keyword">try</span>
+        LQuery.SQL.Text := <span class="hljs-string">'''
         SELECT
           USR_ID
-          <span class="token punctuation">,</span> USR_NM
-          <span class="token punctuation">,</span> USR_LVL
+          , USR_NM
+          , USR_LVL
         FROM
           USRS
-        '<span class="token string">''</span><span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>Open<span class="token punctuation">;</span>
+        '''</span>;
+        LQuery.Open;
 
-        Res<span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span>LQuery<span class="token punctuation">.</span>ToJSON<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword keyword-finally">finally</span>
-        LQuery<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
-        LConnection<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
-      <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Res.ContentType(<span class="hljs-string">'application/json'</span>);
+        Res.Send(LQuery.ToJSON);
+      <span class="hljs-keyword">finally</span>
+        LQuery.Free;
+        LConnection.Free;
+      <span class="hljs-keyword">end</span>;
+    <span class="hljs-keyword">end</span>);
 
-  <span class="token comment">// 단건 조회</span>
-  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/user/:id'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-begin">begin</span>
-      <span class="token keyword keyword-var">var</span> LConnection <span class="token operator">:=</span> TDatabase<span class="token punctuation">.</span>GetConnection<span class="token punctuation">;</span>
-      <span class="token keyword keyword-var">var</span> LQuery <span class="token operator">:=</span> LConnection<span class="token punctuation">.</span>GetQuery<span class="token punctuation">;</span>
-      <span class="token keyword keyword-try">try</span>
-        LQuery<span class="token punctuation">.</span>SQL<span class="token punctuation">.</span>Text <span class="token operator">:=</span> '<span class="token string">''</span>
+  <span class="hljs-comment">// 단건 조회</span>
+  THorse.Get(<span class="hljs-string">'/user/:id'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">begin</span>
+      <span class="hljs-title">var</span> <span class="hljs-title">LConnection</span> :</span>= TDatabase.GetConnection;
+      <span class="hljs-keyword">var</span> LQuery := LConnection.GetQuery;
+      <span class="hljs-keyword">try</span>
+        LQuery.SQL.Text := <span class="hljs-string">'''
         SELECT
           USR_ID
-          <span class="token punctuation">,</span> USR_NM
-          <span class="token punctuation">,</span> USR_LVL
+          , USR_NM
+          , USR_LVL
         FROM
           USRS
         WHERE
-          USR_ID <span class="token operator">=</span> <span class="token punctuation">:</span>USR_ID
-        '<span class="token string">''</span><span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_ID'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> Req<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>Open<span class="token punctuation">;</span>
+          USR_ID = :USR_ID
+        '''</span>;
+        LQuery.Params.ParamByName(<span class="hljs-string">'USR_ID'</span>).AsString := Req.Params[<span class="hljs-string">'id'</span>];
+        LQuery.Open;
 
-        Res<span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span>LQuery<span class="token punctuation">.</span>ToJSON<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword keyword-finally">finally</span>
-        LQuery<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
-        LConnection<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
-      <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Res.ContentType(<span class="hljs-string">'application/json'</span>);
+        Res.Send(LQuery.ToJSON);
+      <span class="hljs-keyword">finally</span>
+        LQuery.Free;
+        LConnection.Free;
+      <span class="hljs-keyword">end</span>;
+    <span class="hljs-keyword">end</span>);
 
-  <span class="token comment">// 삭제</span>
-  THorse<span class="token punctuation">.</span>Delete<span class="token punctuation">(</span><span class="token string">'/user/:id'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-begin">begin</span>
-      <span class="token keyword keyword-var">var</span> LConnection <span class="token operator">:=</span> TDatabase<span class="token punctuation">.</span>GetConnection<span class="token punctuation">;</span>
-      <span class="token keyword keyword-var">var</span> LQuery <span class="token operator">:=</span> LConnection<span class="token punctuation">.</span>GetQuery<span class="token punctuation">;</span>
-      <span class="token keyword keyword-try">try</span>
-        LQuery<span class="token punctuation">.</span>SQL<span class="token punctuation">.</span>Text <span class="token operator">:=</span> '<span class="token string">''</span>
+  <span class="hljs-comment">// 삭제</span>
+  THorse.Delete(<span class="hljs-string">'/user/:id'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">begin</span>
+      <span class="hljs-title">var</span> <span class="hljs-title">LConnection</span> :</span>= TDatabase.GetConnection;
+      <span class="hljs-keyword">var</span> LQuery := LConnection.GetQuery;
+      <span class="hljs-keyword">try</span>
+        LQuery.SQL.Text := <span class="hljs-string">'''
         DELETE
         FROM
           USRS
         WHERE
-          USR_ID <span class="token operator">=</span> <span class="token punctuation">:</span>USR_ID
-        '<span class="token string">''</span><span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_ID'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> Req<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>ExecSQL<span class="token punctuation">;</span>
+          USR_ID = :USR_ID
+        '''</span>;
+        LQuery.Params.ParamByName(<span class="hljs-string">'USR_ID'</span>).AsString := Req.Params[<span class="hljs-string">'id'</span>];
+        LQuery.ExecSQL;
 
-        Res<span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span><span class="token string">'{"result": "OK"}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword keyword-finally">finally</span>
-        LQuery<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
-        LConnection<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
-      <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Res.ContentType(<span class="hljs-string">'application/json'</span>);
+        Res.Send(<span class="hljs-string">'{"result": "OK"}'</span>);
+      <span class="hljs-keyword">finally</span>
+        LQuery.Free;
+        LConnection.Free;
+      <span class="hljs-keyword">end</span>;
+    <span class="hljs-keyword">end</span>);
 
-  <span class="token comment">// 등록</span>
-  THorse<span class="token punctuation">.</span>Post<span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-begin">begin</span>
-      <span class="token keyword keyword-var">var</span> LConnection <span class="token operator">:=</span> TDatabase<span class="token punctuation">.</span>GetConnection<span class="token punctuation">;</span>
-      <span class="token keyword keyword-var">var</span> LQuery <span class="token operator">:=</span> LConnection<span class="token punctuation">.</span>GetQuery<span class="token punctuation">;</span>
-      <span class="token keyword keyword-try">try</span>
-        LQuery<span class="token punctuation">.</span>SQL<span class="token punctuation">.</span>Text <span class="token operator">:=</span> '<span class="token string">''</span>
+  <span class="hljs-comment">// 등록</span>
+  THorse.Post(<span class="hljs-string">'/user'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">begin</span>
+      <span class="hljs-title">var</span> <span class="hljs-title">LConnection</span> :</span>= TDatabase.GetConnection;
+      <span class="hljs-keyword">var</span> LQuery := LConnection.GetQuery;
+      <span class="hljs-keyword">try</span>
+        LQuery.SQL.Text := <span class="hljs-string">'''
         INSERT INTO USRS
-        <span class="token punctuation">(</span>
+        (
           USR_ID
-          <span class="token punctuation">,</span> USR_PW
-          <span class="token punctuation">,</span> USR_NM
-          <span class="token punctuation">,</span> USR_LVL
-        <span class="token punctuation">)</span>
+          , USR_PW
+          , USR_NM
+          , USR_LVL
+        )
         VALUES
-        <span class="token punctuation">(</span>
-          <span class="token punctuation">:</span>USR_ID
-          <span class="token punctuation">,</span> <span class="token punctuation">:</span>USR_PW
-          <span class="token punctuation">,</span> <span class="token punctuation">:</span>USR_NM
-          <span class="token punctuation">,</span> <span class="token punctuation">:</span>USR_LVL
-        <span class="token punctuation">)</span>
-        '<span class="token string">''</span><span class="token punctuation">;</span>
+        (
+          :USR_ID
+          , :USR_PW
+          , :USR_NM
+          , :USR_LVL
+        )
+        '''</span>;
 
-        <span class="token keyword keyword-var">var</span> LJSON <span class="token operator">:=</span> TJSONObject<span class="token punctuation">.</span>ParseJSONValue<span class="token punctuation">(</span>Req<span class="token punctuation">.</span>Body<span class="token punctuation">)</span> <span class="token operator">as</span> TJSONObject<span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_ID'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> LJSON<span class="token punctuation">.</span>GetValue<span class="token operator">&lt;</span><span class="token keyword keyword-string">string</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">'usr_id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_PW'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> <span class="token string">'1234'</span><span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_NM'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> LJSON<span class="token punctuation">.</span>GetValue<span class="token operator">&lt;</span><span class="token keyword keyword-string">string</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">'usr_nm'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_LVL'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsInteger <span class="token operator">:=</span> LJSON<span class="token punctuation">.</span>GetValue<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">'usr_lvl'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>ExecSQL<span class="token punctuation">;</span>
-        LJSON<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
-        Res<span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span>LQuery<span class="token punctuation">.</span>ToJSON<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword keyword-finally">finally</span>
-        LQuery<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
-        LConnection<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
-      <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="hljs-keyword">var</span> LJSON := TJSONObject.ParseJSONValue(Req.Body) <span class="hljs-keyword">as</span> TJSONObject;
+        LQuery.Params.ParamByName(<span class="hljs-string">'USR_ID'</span>).AsString := LJSON.GetValue&lt;<span class="hljs-keyword">string</span>&gt;(<span class="hljs-string">'usr_id'</span>);
+        LQuery.Params.ParamByName(<span class="hljs-string">'USR_PW'</span>).AsString := <span class="hljs-string">'1234'</span>;
+        LQuery.Params.ParamByName(<span class="hljs-string">'USR_NM'</span>).AsString := LJSON.GetValue&lt;<span class="hljs-keyword">string</span>&gt;(<span class="hljs-string">'usr_nm'</span>);
+        LQuery.Params.ParamByName(<span class="hljs-string">'USR_LVL'</span>).AsInteger := LJSON.GetValue&lt;Integer&gt;(<span class="hljs-string">'usr_lvl'</span>);
+        LQuery.ExecSQL;
+        LJSON.Free;
+        Res.ContentType(<span class="hljs-string">'application/json'</span>);
+        Res.Send(LQuery.ToJSON);
+      <span class="hljs-keyword">finally</span>
+        LQuery.Free;
+        LConnection.Free;
+      <span class="hljs-keyword">end</span>;
+    <span class="hljs-keyword">end</span>);
 
-  <span class="token comment">// 수정</span>
-  THorse<span class="token punctuation">.</span>Put<span class="token punctuation">(</span><span class="token string">'/user/:id'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-begin">begin</span>
-      <span class="token keyword keyword-var">var</span> LConnection <span class="token operator">:=</span> TDatabase<span class="token punctuation">.</span>GetConnection<span class="token punctuation">;</span>
-      <span class="token keyword keyword-var">var</span> LQuery <span class="token operator">:=</span> LConnection<span class="token punctuation">.</span>GetQuery<span class="token punctuation">;</span>
-      <span class="token keyword keyword-try">try</span>
-        LQuery<span class="token punctuation">.</span>SQL<span class="token punctuation">.</span>Text <span class="token operator">:=</span> '<span class="token string">''</span>
+  <span class="hljs-comment">// 수정</span>
+  THorse.Put(<span class="hljs-string">'/user/:id'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">begin</span>
+      <span class="hljs-title">var</span> <span class="hljs-title">LConnection</span> :</span>= TDatabase.GetConnection;
+      <span class="hljs-keyword">var</span> LQuery := LConnection.GetQuery;
+      <span class="hljs-keyword">try</span>
+        LQuery.SQL.Text := <span class="hljs-string">'''
         UPDATE USRS
-        <span class="token keyword keyword-SET">SET</span>
-          USR_NM <span class="token operator">=</span> <span class="token punctuation">:</span>USR_NM
-          <span class="token punctuation">,</span> USR_LVL <span class="token operator">=</span> <span class="token punctuation">:</span>USR_LVL
+        SET
+          USR_NM = :USR_NM
+          , USR_LVL = :USR_LVL
         WHERE
-          USR_ID <span class="token operator">=</span> <span class="token punctuation">:</span>USR_ID
-        '<span class="token string">''</span><span class="token punctuation">;</span>
+          USR_ID = :USR_ID
+        '''</span>;
 
-        <span class="token keyword keyword-var">var</span> LJSON <span class="token operator">:=</span> TJSONObject<span class="token punctuation">.</span>ParseJSONValue<span class="token punctuation">(</span>Req<span class="token punctuation">.</span>Body<span class="token punctuation">)</span> <span class="token operator">as</span> TJSONObject<span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_ID'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> Req<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_NM'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> LJSON<span class="token punctuation">.</span>GetValue<span class="token operator">&lt;</span><span class="token keyword keyword-string">string</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">'usr_nm'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_LVL'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsInteger <span class="token operator">:=</span> LJSON<span class="token punctuation">.</span>GetValue<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">'usr_lvl'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LQuery<span class="token punctuation">.</span>ExecSQL<span class="token punctuation">;</span>
-        LJSON<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+        <span class="hljs-keyword">var</span> LJSON := TJSONObject.ParseJSONValue(Req.Body) <span class="hljs-keyword">as</span> TJSONObject;
+        LQuery.Params.ParamByName(<span class="hljs-string">'USR_ID'</span>).AsString := Req.Params[<span class="hljs-string">'id'</span>];
+        LQuery.Params.ParamByName(<span class="hljs-string">'USR_NM'</span>).AsString := LJSON.GetValue&lt;<span class="hljs-keyword">string</span>&gt;(<span class="hljs-string">'usr_nm'</span>);
+        LQuery.Params.ParamByName(<span class="hljs-string">'USR_LVL'</span>).AsInteger := LJSON.GetValue&lt;Integer&gt;(<span class="hljs-string">'usr_lvl'</span>);
+        LQuery.ExecSQL;
+        LJSON.Free;
 
-        Res<span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span>LQuery<span class="token punctuation">.</span>ToJSON<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword keyword-finally">finally</span>
-        LQuery<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
-        LConnection<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
-      <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Res.ContentType(<span class="hljs-string">'application/json'</span>);
+        Res.Send(LQuery.ToJSON);
+      <span class="hljs-keyword">finally</span>
+        LQuery.Free;
+        LConnection.Free;
+      <span class="hljs-keyword">end</span>;
+    <span class="hljs-keyword">end</span>);
 
-  <span class="token comment">// 9000번 포트를 리스닝한다</span>
-  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
-</code></pre><h3 id="5-api-문서화와-테스트"><strong>5. API 문서화와 테스트</strong> </h3>
-<h4 id="51-swagger를-사용해서-문서화-하기">5.1 Swagger를 사용해서 문서화 하기 </h4>
+  <span class="hljs-comment">// 9000번 포트를 리스닝한다</span>
+  THorse.Listen(<span class="hljs-number">9000</span>);
+<span class="hljs-keyword">end</span>.
+</div></code></pre>
+<h3 id="5-api-%EB%AC%B8%EC%84%9C%ED%99%94%EC%99%80-%ED%85%8C%EC%8A%A4%ED%8A%B8"><strong>5. API 문서화와 테스트</strong></h3>
+<h4 id="51-swagger%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%84%9C-%EB%AC%B8%EC%84%9C%ED%99%94-%ED%95%98%EA%B8%B0">5.1 Swagger를 사용해서 문서화 하기</h4>
 <p>SWAGGER의 특징</p>
 <ul>
-<li>API 문서화 자동화<br>
+<li>API 문서화 자동화
 코드에서 주석이나 어노테이션을 통해 API 문서를 자동으로 생성합니다. 수동으로 문서를 작성하고 업데이트할 필요가 없어 개발 효율성이 높아집니다.</li>
-<li>OpenAPI 사양 준수<br>
+<li>OpenAPI 사양 준수
 OpenAPI Specification(OAS)를 기반으로 하여 표준화된 방식으로 REST API를 정의하고 문서화합니다.</li>
-<li>인터랙티브 문서<br>
+<li>인터랙티브 문서
 Swagger UI를 통해 웹 브라우저에서 직접 API를 테스트할 수 있는 대화형 문서를 제공합니다. 실제 API 호출을 해보면서 응답을 확인할 수 있습니다.</li>
-<li>코드 생성<br>
+<li>코드 생성
 API 사양서를 기반으로 클라이언트 SDK, 서버 스텁 코드 등을 다양한 프로그래밍 언어로 자동 생성할 수 있습니다.</li>
-<li>API 설계 우선 개발<br>
+<li>API 설계 우선 개발
 코드 작성 전에 API를 먼저 설계하고 문서화하여 팀 간 협업과 API 일관성을 개선할 수 있습니다.</li>
-<li>다양한 도구 지원<br>
+<li>다양한 도구 지원
 Swagger Editor, Swagger UI, Swagger Codegen 등 다양한 도구들이 API 개발 생명주기 전반을 지원합니다.</li>
 </ul>
 <p>이러한 특징들로 인해 Swagger는 현재 가장 널리 사용되는 API 문서화 및 개발 도구 중 하나가 되었습니다.</p>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware05<span class="token punctuation">;</span>
+<pre class="hljs"><code><div><span class="hljs-keyword">program</span> Middlware05;
 
-<span class="token directive marco property">{$APPTYPE CONSOLE}</span>
+<span class="hljs-meta">{$APPTYPE CONSOLE}</span>
 
-<span class="token keyword keyword-uses">uses</span>
-  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
-  System<span class="token punctuation">.</span>Classes<span class="token punctuation">,</span>
+<span class="hljs-keyword">uses</span>
+  System.SysUtils,
+  System.Classes,
 
-  Horse<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">.</span>GBSwagger<span class="token punctuation">;</span>
+  Horse,
+  Horse.GBSwagger;
 
-<span class="token keyword keyword-type">type</span>
-  TUser <span class="token operator">=</span> <span class="token keyword keyword-class">class</span>
-  <span class="token keyword keyword-private">private</span>
-    FID<span class="token punctuation">:</span> Double<span class="token punctuation">;</span>
-    FName<span class="token punctuation">:</span> <span class="token keyword keyword-String">String</span><span class="token punctuation">;</span>
-    FLastName<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">;</span>
-  <span class="token keyword keyword-public">public</span>
-    <span class="token keyword keyword-property">property</span> ID<span class="token punctuation">:</span> Double <span class="token keyword keyword-read">read</span> FID <span class="token keyword keyword-write">write</span> FID<span class="token punctuation">;</span>
-    <span class="token keyword keyword-property">property</span> <span class="token keyword keyword-Name">Name</span><span class="token punctuation">:</span> <span class="token keyword keyword-String">String</span> <span class="token keyword keyword-read">read</span> FName <span class="token keyword keyword-write">write</span> FName<span class="token punctuation">;</span>
-    <span class="token keyword keyword-property">property</span> LastName<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span> <span class="token keyword keyword-read">read</span> FLastName <span class="token keyword keyword-write">write</span> FLastName<span class="token punctuation">;</span>
-  <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">type</span>
+  TUser = <span class="hljs-keyword">class</span>
+  <span class="hljs-keyword">private</span>
+    FID: Double;
+    FName: <span class="hljs-keyword">String</span>;
+    FLastName: <span class="hljs-keyword">string</span>;
+  <span class="hljs-keyword">public</span>
+    <span class="hljs-keyword">property</span> ID: Double <span class="hljs-keyword">read</span> FID <span class="hljs-keyword">write</span> FID;
+    <span class="hljs-keyword">property</span> <span class="hljs-keyword">Name</span>: <span class="hljs-keyword">String</span> <span class="hljs-keyword">read</span> FName <span class="hljs-keyword">write</span> FName;
+    <span class="hljs-keyword">property</span> LastName: <span class="hljs-keyword">string</span> <span class="hljs-keyword">read</span> FLastName <span class="hljs-keyword">write</span> FLastName;
+  <span class="hljs-keyword">end</span>;
 
-  TAPIError <span class="token operator">=</span> <span class="token keyword keyword-class">class</span>
-  <span class="token keyword keyword-private">private</span>
-    FError<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">;</span>
-  <span class="token keyword keyword-public">public</span>
-    <span class="token keyword keyword-property">property</span> Error<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span> <span class="token keyword keyword-read">read</span> FError <span class="token keyword keyword-write">write</span> FError<span class="token punctuation">;</span>
-  <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+  TAPIError = <span class="hljs-keyword">class</span>
+  <span class="hljs-keyword">private</span>
+    FError: <span class="hljs-keyword">string</span>;
+  <span class="hljs-keyword">public</span>
+    <span class="hljs-keyword">property</span> Error: <span class="hljs-keyword">string</span> <span class="hljs-keyword">read</span> FError <span class="hljs-keyword">write</span> FError;
+  <span class="hljs-keyword">end</span>;
 
-<span class="token keyword keyword-var">var</span>
-  App<span class="token punctuation">:</span> THorse<span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span>
+  App: THorse;
 
-<span class="token keyword keyword-begin">begin</span>
-  App <span class="token operator">:=</span> THorse<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
+<span class="hljs-keyword">begin</span>
+  App := THorse.Create;
 
-  <span class="token comment">// Access http://localhost:9000/swagger/doc/html</span>
-  App<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>HorseSwagger<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="hljs-comment">// Access http://localhost:9000/swagger/doc/html</span>
+  App.Use(HorseSwagger);
 
-  APP<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-begin">begin</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  APP.Get(<span class="hljs-string">'/user'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span><span class="hljs-params">(Req: THorseRequest; Res: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">begin</span>
+    <span class="hljs-title">end</span>);</span>
 
-  APP<span class="token punctuation">.</span>Post<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span> <span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Resp<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-begin">begin</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  APP.Post(<span class="hljs-string">'user'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-params">(Req: THorseRequest; Resp: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">begin</span>
+    <span class="hljs-title">end</span>);</span>
 
-  APP<span class="token punctuation">.</span>Delete<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span>
-    <span class="token keyword keyword-procedure">procedure</span> <span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Resp<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
-    <span class="token keyword keyword-begin">begin</span>
-    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  APP.Delete(<span class="hljs-string">'user'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-params">(Req: THorseRequest; Resp: THorseResponse; Next: TProc)</span>
+    <span class="hljs-title">begin</span>
+    <span class="hljs-title">end</span>);</span>
 
   Swagger
-    <span class="token punctuation">.</span>Info
-      <span class="token punctuation">.</span>Title<span class="token punctuation">(</span><span class="token string">'Database CRUD Sample'</span><span class="token punctuation">)</span>
-      <span class="token punctuation">.</span>Description<span class="token punctuation">(</span><span class="token string">'API Horse'</span><span class="token punctuation">)</span>
-      <span class="token punctuation">.</span>Contact
-        <span class="token punctuation">.</span><span class="token keyword keyword-Name">Name</span><span class="token punctuation">(</span><span class="token string">'시골프로그래머'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>Email<span class="token punctuation">(</span><span class="token string">'civilian7@email.com'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>URL<span class="token punctuation">(</span><span class="token string">'https://cafe.naver.com/delmadang'</span><span class="token punctuation">)</span>
-      <span class="token punctuation">.</span>&amp;End
-    <span class="token punctuation">.</span>&amp;End
-    <span class="token punctuation">.</span>BasePath<span class="token punctuation">(</span><span class="token string">'v1'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span>Path<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span>
-      <span class="token punctuation">.</span>Tag<span class="token punctuation">(</span><span class="token string">'User'</span><span class="token punctuation">)</span>
-      <span class="token punctuation">.</span>GET<span class="token punctuation">(</span><span class="token string">'List All'</span><span class="token punctuation">,</span> <span class="token string">'List All Users'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token string">'successful operation'</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TUser<span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>IsArray<span class="token punctuation">(</span><span class="token keyword keyword-True">True</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>&amp;End
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">.</span>&amp;End
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span>&amp;End
-      <span class="token punctuation">.</span>&amp;End
-      <span class="token punctuation">.</span>POST<span class="token punctuation">(</span><span class="token string">'Add user'</span><span class="token punctuation">,</span> <span class="token string">'Add a new user'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>AddParamBody<span class="token punctuation">(</span><span class="token string">'User data'</span><span class="token punctuation">,</span> <span class="token string">'User data'</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>Required<span class="token punctuation">(</span><span class="token keyword keyword-True">True</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span><span class="token string">'string'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>&amp;End
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token string">'Created'</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TUser<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>&amp;End
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'BadRequest'</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TAPIError<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>&amp;End
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span>&amp;End
-      <span class="token punctuation">.</span>&amp;End
-      <span class="token punctuation">.</span>DELETE<span class="token punctuation">(</span><span class="token string">'Delete user'</span><span class="token punctuation">,</span> <span class="token string">'Delete user'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>AddParamQuery<span class="token punctuation">(</span><span class="token string">'userid'</span><span class="token punctuation">,</span> <span class="token string">'User ID'</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>Required<span class="token punctuation">(</span><span class="token keyword keyword-True">True</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span><span class="token string">'string'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>&amp;End
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token string">'Deleted'</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TUser<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>&amp;End
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'BadRequest'</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TAPIError<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>&amp;End
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span>&amp;End
-      <span class="token punctuation">.</span>&amp;End
-    <span class="token punctuation">.</span>&amp;End
-  <span class="token punctuation">.</span>&amp;End<span class="token punctuation">;</span>
+    .Info
+      .Title(<span class="hljs-string">'Database CRUD Sample'</span>)
+      .Description(<span class="hljs-string">'API Horse'</span>)
+      .Contact
+        .<span class="hljs-keyword">Name</span>(<span class="hljs-string">'시골프로그래머'</span>)
+        .Email(<span class="hljs-string">'civilian7@email.com'</span>)
+        .URL(<span class="hljs-string">'https://cafe.naver.com/delmadang'</span>)
+      .&amp;<span class="hljs-keyword">End</span>
+    .&amp;<span class="hljs-keyword">End</span>
+    .BasePath(<span class="hljs-string">'v1'</span>)
+    .Path(<span class="hljs-string">'user'</span>)
+      .Tag(<span class="hljs-string">'User'</span>)
+      .GET(<span class="hljs-string">'List All'</span>, <span class="hljs-string">'List All Users'</span>)
+        .AddResponse(<span class="hljs-number">200</span>, <span class="hljs-string">'successful operation'</span>)
+          .Schema(TUser)
+          .IsArray(True)
+        .&amp;<span class="hljs-keyword">End</span>
+        .AddResponse(<span class="hljs-number">400</span>).&amp;<span class="hljs-keyword">End</span>
+        .AddResponse(<span class="hljs-number">500</span>).&amp;<span class="hljs-keyword">End</span>
+      .&amp;<span class="hljs-keyword">End</span>
+      .POST(<span class="hljs-string">'Add user'</span>, <span class="hljs-string">'Add a new user'</span>)
+        .AddParamBody(<span class="hljs-string">'User data'</span>, <span class="hljs-string">'User data'</span>)
+          .Required(True)
+          .Schema(<span class="hljs-string">'string'</span>)
+        .&amp;<span class="hljs-keyword">End</span>
+        .AddResponse(<span class="hljs-number">201</span>, <span class="hljs-string">'Created'</span>)
+          .Schema(TUser)
+        .&amp;<span class="hljs-keyword">End</span>
+        .AddResponse(<span class="hljs-number">400</span>, <span class="hljs-string">'BadRequest'</span>)
+          .Schema(TAPIError)
+        .&amp;<span class="hljs-keyword">End</span>
+        .AddResponse(<span class="hljs-number">500</span>).&amp;<span class="hljs-keyword">End</span>
+      .&amp;<span class="hljs-keyword">End</span>
+      .DELETE(<span class="hljs-string">'Delete user'</span>, <span class="hljs-string">'Delete user'</span>)
+        .AddParamQuery(<span class="hljs-string">'userid'</span>, <span class="hljs-string">'User ID'</span>)
+          .Required(True)
+          .Schema(<span class="hljs-string">'string'</span>)
+        .&amp;<span class="hljs-keyword">End</span>
+        .AddResponse(<span class="hljs-number">201</span>, <span class="hljs-string">'Deleted'</span>)
+          .Schema(TUser)
+        .&amp;<span class="hljs-keyword">End</span>
+        .AddResponse(<span class="hljs-number">400</span>, <span class="hljs-string">'BadRequest'</span>)
+          .Schema(TAPIError)
+        .&amp;<span class="hljs-keyword">End</span>
+        .AddResponse(<span class="hljs-number">500</span>).&amp;<span class="hljs-keyword">End</span>
+      .&amp;<span class="hljs-keyword">End</span>
+    .&amp;<span class="hljs-keyword">End</span>
+  .&amp;<span class="hljs-keyword">End</span>;
 
-  <span class="token comment">// 9000번 포트를 리스닝한다</span>
-  App<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
-</code></pre>
-      </div>
-      
-      
-    
-    
-    <script type="module">
-// TODO: If ZenUML gets integrated into mermaid in the future,
-//      we can remove the following lines.
+  <span class="hljs-comment">// 9000번 포트를 리스닝한다</span>
+  App.Listen(<span class="hljs-number">9000</span>);
+<span class="hljs-keyword">end</span>.
+</div></code></pre>
 
-
-var MERMAID_CONFIG = ({"startOnLoad":false});
-if (typeof MERMAID_CONFIG !== 'undefined') {
-  MERMAID_CONFIG.startOnLoad = false
-  MERMAID_CONFIG.cloneCssStyles = false
-  MERMAID_CONFIG.theme = "default"
-}
-
-mermaid.initialize(MERMAID_CONFIG || {})
-if (typeof(window['Reveal']) !== 'undefined') {
-  function mermaidRevealHelper(event) {
-    var currentSlide = event.currentSlide
-    var diagrams = currentSlide.querySelectorAll('.mermaid')
-    for (var i = 0; i < diagrams.length; i++) {
-      var diagram = diagrams[i]
-      if (!diagram.hasAttribute('data-processed')) {
-        mermaid.init(null, diagram, ()=> {
-          Reveal.slide(event.indexh, event.indexv)
-        })
-      }
-    }
-  }
-  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
-  Reveal.addEventListener('ready', mermaidRevealHelper)
-  await mermaid.run({
-    nodes: document.querySelectorAll('.mermaid')
-  })
-} else {
-  await mermaid.run({
-    nodes: document.querySelectorAll('.mermaid')
-  })
-}
-</script>
-    
-    
-    
-  
-    </body></html>
+</body>
+</html>
