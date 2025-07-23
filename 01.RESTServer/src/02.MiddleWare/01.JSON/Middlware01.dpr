@@ -5,6 +5,7 @@
 uses
   System.SysUtils,
   System.JSON,
+
   Horse,
   Horse.Jhonson;
 
@@ -20,6 +21,9 @@ begin
     begin
       LResult := TJSONObject.Create;
       LResult.AddPair('response', 'Hello, World');
+      LResult.AddPair('current_time', FormatDateTime('yyyy-mm-dd hh:nn:ss', Now));
+      LResult.AddPair('count', 100);
+
       Res.Send<TJSONObject>(LResult);
     end);
 

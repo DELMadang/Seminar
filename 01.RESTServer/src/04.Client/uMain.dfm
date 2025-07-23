@@ -105,6 +105,7 @@ object frmMain: TfrmMain
       Height = 25
       Caption = #52712#49548
       TabOrder = 4
+      OnClick = Button3Click
     end
   end
   object btnInsert: TButton
@@ -156,11 +157,11 @@ object frmMain: TfrmMain
     Params = <>
     StoreDefs = True
     Left = 64
-    Top = 216
+    Top = 168
   end
   object dsCustomer: TDataSource
     DataSet = mtCustomer
     Left = 64
-    Top = 304
+    Top = 240
   end
 end

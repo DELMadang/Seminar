@@ -52,7 +52,8 @@ begin
     begin
     end);
 
-Swagger
+{$IFDEF DEBUG}
+  Swagger
     .Info
       .Title('Database CRUD Sample')
       .Description('API Horse')
@@ -101,6 +102,7 @@ Swagger
       .&End
     .&End
   .&End;
+{$ENDIF}
 
   // 9000번 포트를 리스닝한다
   App.Listen(9000);

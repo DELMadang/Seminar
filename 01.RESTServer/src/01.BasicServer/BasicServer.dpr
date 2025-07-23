@@ -15,6 +15,13 @@ begin
       Res.Send('{"response": "Hello World!"}');
     end);
 
+  THorse.Get('/hello/:id',
+    procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
+    begin
+      Res.ContentType('application/json');
+      Res.Send('{"response": "' + Req.Params['id'] + ', World!"}');
+    end);
+
   // 9000번 포트를 리스닝한다
   THorse.Listen(9000);
 end.

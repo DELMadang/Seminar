@@ -108,8 +108,21 @@ procedure TfrmMain.TriggerCommandGet(AContext: TIdContext;
 begin
   if SameText(ARequestInfo.URI, '/hello') then
   begin
+
     AResponseInfo.ContentType := 'application/json';
     AResponseInfo.ContentText := '{"response": "Hello, world!"}';
+  end
+  else
+  if SameText(ARequestInfo.URI, '/hello2') then
+  begin
+    AResponseInfo.ContentType := 'application/json';
+    AResponseInfo.ContentText := '{"response": "Hello2, world!"}';
+  end
+  else
+  if SameText(ARequestInfo.URI, '/hello3') then
+  begin
+    AResponseInfo.ContentType := 'application/json';
+    AResponseInfo.ContentText := '{"response": "Hello3, world!"}';
   end;
 end;
 

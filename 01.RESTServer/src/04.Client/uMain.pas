@@ -49,6 +49,7 @@ type
     procedure btnInsertClick(Sender: TObject);
     procedure btnQueryClick(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     HttpClient: THttpClient;
 
@@ -125,7 +126,6 @@ begin
   if LResponse.StatusCode <> 200 then
     Exit;
 
-
   var LJSON := TJSONArray.ParseFromStream(LResponse.ContentStream) as TJSONArray;
   try
     mtCustomer.DisableControls;
@@ -155,6 +155,7 @@ begin
   LJSON.S['usr_nm'] := mtCustomer.FieldByName('USR_NM').AsString;
   LJSON.I['usr_lvl'] := mtCustomer.FieldByName('USR_LVL').AsInteger;
 
+  // {"usr_id": "user01", "usr_nm": "ddd", "usr_lvl": 1}
   LJSON.SaveToStream(LStream);
   LStream.Position := 0;
 
@@ -179,6 +180,11 @@ begin
     LStream.Free;
     LJSON.Free;
   end;
+end;
+
+procedure TfrmMain.Button3Click(Sender: TObject);
+begin
+  mtCustomer.Cancel;
 end;
 
 end.
