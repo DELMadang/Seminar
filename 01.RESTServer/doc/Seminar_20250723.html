@@ -119,12 +119,9 @@ Authorization: Bearer abc123token</p>
 <p>클라이언트는 서버의 내부 구조를 몰라도 됨</p>
 <div class="mermaid">flowchart TD
     %% 클라이언트 계층
-    A1[🖥️ 웹 브라우저] --&gt; B[🚪 API Gateway]
-    A2[📱 모바일 앱] --&gt; B
-    A3[💻 데스크톱 앱] --&gt; B
-    
-    %% API Gateway
-    B --&gt; |인증/권한 확인&lt;br/&gt;요청 검증&lt;br/&gt;로깅| C[⚖️ 로드밸런서 ]
+    A1[🖥️ 웹 브라우저] --&gt; C[⚖️ 로드밸런서 ]
+    A2[📱 모바일 앱] --&gt; C
+    A3[💻 데스크톱 앱] --&gt; C
     
     %% 로드밸런서에서 서버들로 분산
     C --&gt; |트래픽 분산| D1[🖥️ 서버 1]
@@ -195,51 +192,52 @@ ETag: "abc123"</p>
 </ul>
 <h5 id="217-다른-프레임워크들">2.1.7 다른 프레임워크들 </h5>
 <ul>
-<li>MARS<br>
+<li><strong>DataSnap</strong> 또는 <strong>WebBroker</strong><br>
+델파이에서 기본으로 제공한다. 12.2에서는 웹스텐실을 사용해서 템플릿을 쉽게 만들 수 있다.</li>
+<li><strong>MARS</strong><br>
 <a href="https://github.com/andrea-magni/MARS">https://github.com/andrea-magni/MARS</a></li>
-<li>WiRL<br>
+<li><strong>WiRL</strong><br>
 <a href="https://github.com/delphi-blocks/WiRL">https://github.com/delphi-blocks/WiRL</a><br>
 MARS와 WiRL은 같은 뿌리에서 나온 것으로 보이는데 MARS가 구현된 것이 조금 더 많지만, WiRL이 코드는 훨씬 정갈하다.</li>
-<li>DataSnap 또는 WebBroker<br>
-델파이에서 기본으로 제공한다. 12.2에서는 웹스텐실을 사용해서 템플릿을 쉽게 만들 수 있다.</li>
-<li>DelphiMVCFramework<br>
+<li><strong>DelphiMVCFramework</strong><br>
 <a href="https://github.com/danieleteti/delphimvcframework">https://github.com/danieleteti/delphimvcframework</a><br>
 가장 업데이트가 활발하다. 소스코드 정돈이 잘 안된점은 아쉽다.</li>
-<li>TMS WebCore<br>
+<li><strong>TMS WebCore</strong><br>
 <a href="https://www.tmssoftware.com/site/tmswebcore.asp">https://www.tmssoftware.com/site/tmswebcore.asp</a><br>
 델파이 Form을 웹으로 전환해주는 등의 기능이 있다. 유료</li>
-<li>Intraweb<br>
+<li><strong>Intraweb</strong><br>
 <a href="https://www.atozed.com/intraweb/">https://www.atozed.com/intraweb/</a><br>
 가장 오래된 솔루션. 유료.</li>
-<li>UniGUI<br>
+<li><strong>UniGUI</strong><br>
 <a href="https://www.unigui.com/">https://www.unigui.com/</a><br>
 유료</li>
-<li>D2Bridge<br>
+<li><strong>D2Bridge</strong><br>
 <a href="https://www.d2bridge.com.br/#">https://www.d2bridge.com.br/#</a><br>
-델파이 Form을 웹으로 전환해주는 등의 기능이 있다. 오픈소스<br>
-​<br>
-다양한 프레임워크가 존재하니 한번쯤 검토해보는 것도 좋을 듯 하다.</li>
+델파이 Form을 웹으로 전환해주는 등의 기능이 있다.<br>
+오픈소스<br>
+​</li>
 </ul>
 <h4 id="22-소스코드-다운로드">2.2 소스코드 다운로드 </h4>
 <p>델마당 공식 리포지토리에서 클론한다<br>
-<a href="https://github.com/DELMadang/01.RESTServer">델마당 세미나 리포지토리</a></p>
+<a href="https://github.com/DELMadang/Seminar">델마당 세미나 리포지토리</a></p>
 <p>클론 후 폴더의 구성은 다음과 같다.</p>
 <pre data-role="codeBlock" data-info="console" class="language-console console"><code>01.RESTServer/
   ├── bin                     // 실행 파일이 생성되는 곳
   ├── database
   │   └── schema.sql          // MariaDB용 스키마
   ├── docs
-  │   └── RestAPI.md          // 현재 보고 있는 문서
+  │   └── Seminar_20250723.md // 현재 보고 있는 문서
   ├── lib
   │   ├── Horse               // Horse 엔진 유닛들
   │   └── MiddleWare          // 미들웨어 유닛들
+  │   └── Swagger             // 스웨거 유닛들
   └── src
       ├── 00.Raw              // Indy를 사용한 서버
       ├── 01.Basic            // 기본 서버
       ├── 02.MiddleWare       // 미들웨어 적용한 서버
       ├── 03.Database         // 데이터베이스 연동 서버
       ├── 04.Client           // 클라이언트
-      └── 99.NodeJS           // NodeJS 
+      └── 99.NodeJS           // NodeJS 예제
 </code></pre><h4 id="23-indy를-사용하여-구현하기">2.3 Indy를 사용하여 구현하기 </h4>
 <p>프레임워크의 도움없이 서버를 구현해 보면서, 프레임워크의 필요성에 대해 알아본다</p>
 <pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-constructor">constructor</span> TfrmMain<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>AOwner<span class="token punctuation">:</span> TComponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -453,6 +451,8 @@ Basic Authentication 동작 원리</p>
   <span class="token comment">// 9000번 포트를 리스닝한다</span>
   THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre><p>브라우저에서 테스트 하기</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://user:password@localhost:9000/hello
 </code></pre><h5 id="323-cors">3.2.3 cors </h5>
 <p>CORS(Cross-Origin Resource Sharing)는 웹 브라우저의 Same-Origin Policy(동일 출처 정책) 제한을 우회하기 위해 사용됩니다.</p>
 <p><strong>Same-Origin Policy란?</strong><br>
@@ -524,6 +524,14 @@ Basic Authentication 동작 원리</p>
   THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
 </code></pre><h5 id="324-stream">3.2.4 stream </h5>
+<p>Stream을 다루기 위한 공식 미들웨어입니다. 이 미들웨어를 사용하면 웹 API에서 파일이나 바이너리 데이터를 스트림으로 전송할 수 있습니다.</p>
+<p>주요 특징</p>
+<ul>
+<li>파일 전송: PDF, 이미지, 동영상 등 다양한 파일 형식을 스트림으로 전송</li>
+<li>메모리 효율성: 대용량 파일도 메모리에 모두 로드하지 않고 스트림으로 처리</li>
+<li>Content-Type 설정: 파일 형식에 맞는 MIME 타입 자동 설정</li>
+<li>MIT 라이선스: 무료 오픈소스</li>
+</ul>
 <pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware04<span class="token punctuation">;</span>
 
 <span class="token directive marco property">{$APPTYPE CONSOLE}</span>
@@ -570,6 +578,63 @@ Basic Authentication 동작 원리</p>
   THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
 </code></pre><h5 id="325-jwt">3.2.5 jwt </h5>
+<p>JWT란?<br>
+JWT는 당사자 간에 정보를 JSON 객체로 안전하게 전송하기 위한 개방형 표준(RFC 7519)입니다. 주로 **인증(Authentication)**과 정보 교환에 사용됩니다.</p>
+<p>JWT 구조<br>
+JWT는 점(.)으로 구분된 세 부분으로 구성됩니다:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>Header.Payload.Signature
+</code></pre><p>1.Header (헤더)</p>
+<ul>
+<li>토큰 타입(JWT)과 해싱 알고리즘 정보</li>
+<li>Base64Url로 인코딩</li>
+</ul>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"alg"</span><span class="token operator">:</span> <span class="token string">"HS256"</span><span class="token punctuation">,</span>
+  <span class="token property">"typ"</span><span class="token operator">:</span> <span class="token string">"JWT"</span>
+<span class="token punctuation">}</span>
+</code></pre><p>2.Payload (페이로드)</p>
+<ul>
+<li>실제 전송할 데이터(클레임)</li>
+<li>사용자 정보, 권한, 만료시간 등</li>
+</ul>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"sub"</span><span class="token operator">:</span> <span class="token string">"1234567890"</span><span class="token punctuation">,</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"John Doe"</span><span class="token punctuation">,</span>
+  <span class="token property">"iat"</span><span class="token operator">:</span> <span class="token number">1516239022</span><span class="token punctuation">,</span>
+  <span class="token property">"exp"</span><span class="token operator">:</span> <span class="token number">1516242622</span>
+<span class="token punctuation">}</span>
+</code></pre><p>3.Signature (서명)</p>
+<ul>
+<li>토큰의 무결성 검증</li>
+<li>Header + Payload + Secret Key로 생성</li>
+</ul>
+<p><strong>동작 방식</strong></p>
+<ul>
+<li>로그인: 사용자가 인증 정보 제공</li>
+<li>토큰 발급: 서버가 JWT 생성 후 클라이언트에 전송</li>
+<li>토큰 사용: 클라이언트가 요청 시 JWT를 Header에 포함</li>
+<li>검증: 서버가 JWT 서명을 검증하여 사용자 인증</li>
+</ul>
+<p><strong>장점</strong></p>
+<ul>
+<li>상태 없음(Stateless): 서버에 세션 정보 저장 불필요</li>
+<li>확장성: 마이크로서비스 환경에 적합</li>
+<li>크로스 도메인: CORS 문제 해결</li>
+<li>모바일 친화적: 쿠키 대신 사용 가능</li>
+</ul>
+<p><strong>단점</strong></p>
+<ul>
+<li>토큰 크기: 쿠키보다 크기가 큼</li>
+<li>보안: 토큰 탈취 시 만료 전까지 사용 가능</li>
+<li>서버 측 무효화 어려움: 블랙리스트 관리 필요</li>
+</ul>
+<p><strong>주요 사용 사례</strong></p>
+<ul>
+<li>인증/인가: 로그인 후 API 접근 제어</li>
+<li>정보 교환: 서비스 간 안전한 데이터 전송</li>
+<li>SSO(Single Sign-On): 여러 서비스 간 인증 공유</li>
+</ul>
+<p>JWT는 현대 웹 애플리케이션에서 표준적으로 사용되는 인증 방식으로, REST API나 마이크로서비스 아키텍처에서 특히 유용합니다.</p>
 <pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span> 
   Horse<span class="token punctuation">,</span> 
   Horse<span class="token punctuation">.</span>JWT<span class="token punctuation">;</span>
@@ -586,6 +651,7 @@ Basic Authentication 동작 원리</p>
   THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
 </code></pre><h5 id="326-exception">3.2.6 exception </h5>
+<p>Handle-exception은 Horse 프레임워크에서 예외를 처리하기 위한 공식 미들웨어입니다. 이 미들웨어는 API에서 발생하는 예외를 자동으로 캐치하고, 클라이언트에게 적절한 JSON 형태의 오류 응답을 반환합니다.</p>
 <pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span> 
   Horse<span class="token punctuation">,</span> 
   Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span> <span class="token comment">// It's necessary to use the unit</span>
@@ -608,6 +674,7 @@ Basic Authentication 동작 원리</p>
   THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
 </code></pre><h5 id="327-logger">3.2.7 logger </h5>
+<p>개발된 API의 로그를 등록하기 위한 공식 미들웨어입니다. 이 미들웨어는 HTTP 요청과 응답에 대한 접근 로그를 자동으로 기록하여 API의 모니터링과 디버깅을 지원합니다.</p>
 <pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span> 
   Horse<span class="token punctuation">,</span> 
   Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span> <span class="token comment">// It's necessary to use the unit</span>
@@ -628,18 +695,44 @@ Basic Authentication 동작 원리</p>
   THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
 </code></pre><h5 id="328-compression">3.2.8 compression </h5>
+<p>API의 콘텐츠를 압축하기 위한 공식 미들웨어입니다. 이 미들웨어는 HTTP 응답을 자동으로 압축하여 네트워크 트래픽을 줄이고 전송 속도를 향상시킵니다.</p>
+<p>지원하는 압축 방식<br>
+현재 미들웨어는 DEFLATE와 GZIP을 사용하여 데이터를 압축할 수 있도록 준비되어 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>압축 타입</th>
+<th>Delphi</th>
+<th>Lazarus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DEFLATE</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>GZIP</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
 <pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span>
+  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
+  System<span class="token punctuation">.</span>JSON<span class="token punctuation">,</span>
+
   Horse<span class="token punctuation">,</span>
   Horse<span class="token punctuation">.</span>Jhonson<span class="token punctuation">,</span>
-  Horse<span class="token punctuation">.</span>Compression<span class="token punctuation">,</span> <span class="token comment">// It's necessary to use the unit</span>
-  System<span class="token punctuation">.</span>JSON<span class="token punctuation">;</span>
+  Horse<span class="token punctuation">.</span>Compression<span class="token punctuation">;</span>
 
 <span class="token keyword keyword-begin">begin</span>
   THorse
-    <span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Compression<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// Must come before Jhonson middleware</span>
+    <span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Compression<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span>Use<span class="token punctuation">(</span>Jhonson<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token comment">// You can set compression threshold:</span>
+  <span class="token comment">// 일정 크기 이상만 압축하도록 설정할 수 있다</span>
   <span class="token comment">// THorse.Use(Compression(1024));</span>
 
   THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/ping'</span><span class="token punctuation">,</span>
