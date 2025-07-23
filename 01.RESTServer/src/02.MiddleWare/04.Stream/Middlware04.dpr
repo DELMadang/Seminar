@@ -5,6 +5,7 @@
 uses
   System.SysUtils,
   System.Classes,
+  System.IOUtils,
 
   Horse,
   Horse.OctetStream;
@@ -18,7 +19,25 @@ begin
       LStream: TFileStream;
     begin
       LStream := TFileStream.Create(ExtractFilePath(ParamStr(0)) + 'horse.pdf', fmOpenRead);
-      Res.Send<TStream>(LStream);
+      Res.Send<TStream>(LStream).ContentType('application/pdf');
+    end);
+
+  THorse.Get('/download/:filename',
+    procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
+    var
+      LPath: string;
+      LStream: TFileStream;
+    begin
+      LPath := TPath.Combine(ExtractFilePath(ParamStr(0)), Req.Params['filename']);
+      if TFile.Exists(LPath) then
+      begin
+        LStream := TFileStream.Create(LPath, fmOpenRead);
+        Res.Send<TStream>(LStream).ContentType('application/pdf');
+      end
+      else
+      begin
+        Res.Status(THTTPStatus.NotFound);
+      end;
     end);
 
   // 9000번 포트를 리스닝한다

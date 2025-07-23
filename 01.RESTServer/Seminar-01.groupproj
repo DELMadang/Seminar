@@ -21,6 +21,9 @@
         <Projects Include="src\02.MiddleWare\04.Stream\Middlware04.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="src\02.MiddleWare\05.Swagger\Middlware05.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="src\03.Database\DBServer.dproj">
             <Dependencies/>
         </Projects>
@@ -89,6 +92,15 @@
     <Target Name="Middlware04:Make">
         <MSBuild Projects="src\02.MiddleWare\04.Stream\Middlware04.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Middlware05">
+        <MSBuild Projects="src\02.MiddleWare\05.Swagger\Middlware05.dproj"/>
+    </Target>
+    <Target Name="Middlware05:Clean">
+        <MSBuild Projects="src\02.MiddleWare\05.Swagger\Middlware05.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Middlware05:Make">
+        <MSBuild Projects="src\02.MiddleWare\05.Swagger\Middlware05.dproj" Targets="Make"/>
+    </Target>
     <Target Name="DBServer">
         <MSBuild Projects="src\03.Database\DBServer.dproj"/>
     </Target>
@@ -108,13 +120,13 @@
         <MSBuild Projects="src\04.Client\RestClient.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="RawServer;BasicServer;Middlware01;Middlware02;Middlware03;Middlware04;DBServer;RestClient"/>
+        <CallTarget Targets="RawServer;BasicServer;Middlware01;Middlware02;Middlware03;Middlware04;Middlware05;DBServer;RestClient"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="RawServer:Clean;BasicServer:Clean;Middlware01:Clean;Middlware02:Clean;Middlware03:Clean;Middlware04:Clean;DBServer:Clean;RestClient:Clean"/>
+        <CallTarget Targets="RawServer:Clean;BasicServer:Clean;Middlware01:Clean;Middlware02:Clean;Middlware03:Clean;Middlware04:Clean;Middlware05:Clean;DBServer:Clean;RestClient:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="RawServer:Make;BasicServer:Make;Middlware01:Make;Middlware02:Make;Middlware03:Make;Middlware04:Make;DBServer:Make;RestClient:Make"/>
+        <CallTarget Targets="RawServer:Make;BasicServer:Make;Middlware01:Make;Middlware02:Make;Middlware03:Make;Middlware04:Make;Middlware05:Make;DBServer:Make;RestClient:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

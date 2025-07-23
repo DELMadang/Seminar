@@ -524,13 +524,14 @@ Basic Authentication 동작 원리</p>
   THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
 </code></pre><h5 id="324-stream">3.2.4 stream </h5>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware01<span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware04<span class="token punctuation">;</span>
 
 <span class="token directive marco property">{$APPTYPE CONSOLE}</span>
 
 <span class="token keyword keyword-uses">uses</span>
   System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
   System<span class="token punctuation">.</span>Classes<span class="token punctuation">,</span>
+  System<span class="token punctuation">.</span>IOUtils<span class="token punctuation">,</span>
 
   Horse<span class="token punctuation">,</span>
   Horse<span class="token punctuation">.</span>OctetStream<span class="token punctuation">;</span>
@@ -544,7 +545,25 @@ Basic Authentication 동작 원리</p>
       LStream<span class="token punctuation">:</span> TFileStream<span class="token punctuation">;</span>
     <span class="token keyword keyword-begin">begin</span>
       LStream <span class="token operator">:=</span> TFileStream<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>ExtractFilePath<span class="token punctuation">(</span>ParamStr<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'horse.pdf'</span><span class="token punctuation">,</span> fmOpenRead<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      Res<span class="token punctuation">.</span>Send<span class="token operator">&lt;</span>TStream<span class="token operator">&gt;</span><span class="token punctuation">(</span>LStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      Res<span class="token punctuation">.</span>Send<span class="token operator">&lt;</span>TStream<span class="token operator">&gt;</span><span class="token punctuation">(</span>LStream<span class="token punctuation">)</span><span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/pdf'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/download/:filename'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-var">var</span>
+      LPath<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">;</span>
+      LStream<span class="token punctuation">:</span> TFileStream<span class="token punctuation">;</span>
+    <span class="token keyword keyword-begin">begin</span>
+      LPath <span class="token operator">:=</span> TPath<span class="token punctuation">.</span>Combine<span class="token punctuation">(</span>ExtractFilePath<span class="token punctuation">(</span>ParamStr<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Req<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">'filename'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-if">if</span> TFile<span class="token punctuation">.</span>Exists<span class="token punctuation">(</span>LPath<span class="token punctuation">)</span> <span class="token keyword keyword-then">then</span>
+      <span class="token keyword keyword-begin">begin</span>
+        LStream <span class="token operator">:=</span> TFileStream<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>LPath<span class="token punctuation">,</span> fmOpenRead<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Res<span class="token punctuation">.</span>Send<span class="token operator">&lt;</span>TStream<span class="token operator">&gt;</span><span class="token punctuation">(</span>LStream<span class="token punctuation">)</span><span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/pdf'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-end">end</span>
+      <span class="token keyword keyword-else">else</span>
+      <span class="token keyword keyword-begin">begin</span>
+        Res<span class="token punctuation">.</span>Status<span class="token punctuation">(</span>THTTPStatus<span class="token punctuation">.</span>NotFound<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
     <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token comment">// 9000번 포트를 리스닝한다</span>
@@ -643,9 +662,9 @@ Basic Authentication 동작 원리</p>
 <span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> users <span class="token punctuation">(</span>
   seq <span class="token keyword keyword-INTEGER">INTEGER</span> <span class="token keyword keyword-AUTO_INCREMENT">AUTO_INCREMENT</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
   usr_id <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  usr_name <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  usr_nm <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
   usr_pw <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  email <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+  usr_lvl <span class="token keyword keyword-INTEGER">INTEGER</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="42-firedac-연결-풀-만들기">4.2 FireDAC 연결 풀 만들기 </h4>
 <ul>
@@ -748,72 +767,280 @@ PostgreSQL 기본 max_connections = 100</li>
 <tbody>
 <tr>
 <td>GET</td>
-<td>/api/users</td>
+<td>/api/user</td>
 <td>전체 사용자 목록 조회</td>
 </tr>
 <tr>
 <td>GET</td>
-<td>/api/users/:id</td>
+<td>/api/user/:id</td>
 <td>특정 사용자 조회</td>
 </tr>
 <tr>
 <td>POST</td>
-<td>/api/users</td>
+<td>/api/user</td>
 <td>사용자 생성</td>
 </tr>
 <tr>
+<td>PUT</td>
+<td>/api/user/:id</td>
+<td>사용자 수정</td>
+</tr>
+<tr>
 <td>DELETE</td>
-<td>/api/users/:id</td>
+<td>/api/user/:id</td>
 <td>특정 사용자 삭제</td>
 </tr>
 </tbody>
 </table>
 <h4 id="44-구현">4.4 구현 </h4>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code></code></pre><h3 id="5-api-문서화와-테스트"><strong>5. API 문서화와 테스트</strong> </h3>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> DBServer<span class="token punctuation">;</span>
+
+<span class="token directive marco property">{$APPTYPE CONSOLE}</span>
+
+<span class="token keyword keyword-uses">uses</span>
+  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
+  System<span class="token punctuation">.</span>Classes<span class="token punctuation">,</span>
+  System<span class="token punctuation">.</span>JSON<span class="token punctuation">,</span>
+
+  Data<span class="token punctuation">.</span>DB<span class="token punctuation">,</span>
+  uDBPool<span class="token punctuation">,</span>
+
+  Horse<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-begin">begin</span>
+  <span class="token comment">// 전체 조회</span>
+  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-begin">begin</span>
+      <span class="token keyword keyword-var">var</span> LConnection <span class="token operator">:=</span> TDatabase<span class="token punctuation">.</span>GetConnection<span class="token punctuation">;</span>
+      <span class="token keyword keyword-var">var</span> LQuery <span class="token operator">:=</span> LConnection<span class="token punctuation">.</span>GetQuery<span class="token punctuation">;</span>
+      <span class="token keyword keyword-try">try</span>
+        LQuery<span class="token punctuation">.</span>SQL<span class="token punctuation">.</span>Text <span class="token operator">:=</span> '<span class="token string">''</span>
+        SELECT
+          USR_ID
+          <span class="token punctuation">,</span> USR_NM
+          <span class="token punctuation">,</span> USR_LVL
+        FROM
+          USRS
+        '<span class="token string">''</span><span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>Open<span class="token punctuation">;</span>
+
+        Res<span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span>LQuery<span class="token punctuation">.</span>ToJSON<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-finally">finally</span>
+        LQuery<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+        LConnection<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+      <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 단건 조회</span>
+  THorse<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/user/:id'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-begin">begin</span>
+      <span class="token keyword keyword-var">var</span> LConnection <span class="token operator">:=</span> TDatabase<span class="token punctuation">.</span>GetConnection<span class="token punctuation">;</span>
+      <span class="token keyword keyword-var">var</span> LQuery <span class="token operator">:=</span> LConnection<span class="token punctuation">.</span>GetQuery<span class="token punctuation">;</span>
+      <span class="token keyword keyword-try">try</span>
+        LQuery<span class="token punctuation">.</span>SQL<span class="token punctuation">.</span>Text <span class="token operator">:=</span> '<span class="token string">''</span>
+        SELECT
+          USR_ID
+          <span class="token punctuation">,</span> USR_NM
+          <span class="token punctuation">,</span> USR_LVL
+        FROM
+          USRS
+        WHERE
+          USR_ID <span class="token operator">=</span> <span class="token punctuation">:</span>USR_ID
+        '<span class="token string">''</span><span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_ID'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> Req<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>Open<span class="token punctuation">;</span>
+
+        Res<span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span>LQuery<span class="token punctuation">.</span>ToJSON<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-finally">finally</span>
+        LQuery<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+        LConnection<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+      <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 삭제</span>
+  THorse<span class="token punctuation">.</span>Delete<span class="token punctuation">(</span><span class="token string">'/user/:id'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-begin">begin</span>
+      <span class="token keyword keyword-var">var</span> LConnection <span class="token operator">:=</span> TDatabase<span class="token punctuation">.</span>GetConnection<span class="token punctuation">;</span>
+      <span class="token keyword keyword-var">var</span> LQuery <span class="token operator">:=</span> LConnection<span class="token punctuation">.</span>GetQuery<span class="token punctuation">;</span>
+      <span class="token keyword keyword-try">try</span>
+        LQuery<span class="token punctuation">.</span>SQL<span class="token punctuation">.</span>Text <span class="token operator">:=</span> '<span class="token string">''</span>
+        DELETE
+        FROM
+          USRS
+        WHERE
+          USR_ID <span class="token operator">=</span> <span class="token punctuation">:</span>USR_ID
+        '<span class="token string">''</span><span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_ID'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> Req<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>ExecSQL<span class="token punctuation">;</span>
+
+        Res<span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span><span class="token string">'{"result": "OK"}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-finally">finally</span>
+        LQuery<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+        LConnection<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+      <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 등록</span>
+  THorse<span class="token punctuation">.</span>Post<span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-begin">begin</span>
+      <span class="token keyword keyword-var">var</span> LConnection <span class="token operator">:=</span> TDatabase<span class="token punctuation">.</span>GetConnection<span class="token punctuation">;</span>
+      <span class="token keyword keyword-var">var</span> LQuery <span class="token operator">:=</span> LConnection<span class="token punctuation">.</span>GetQuery<span class="token punctuation">;</span>
+      <span class="token keyword keyword-try">try</span>
+        LQuery<span class="token punctuation">.</span>SQL<span class="token punctuation">.</span>Text <span class="token operator">:=</span> '<span class="token string">''</span>
+        INSERT INTO USRS
+        <span class="token punctuation">(</span>
+          USR_ID
+          <span class="token punctuation">,</span> USR_PW
+          <span class="token punctuation">,</span> USR_NM
+          <span class="token punctuation">,</span> USR_LVL
+        <span class="token punctuation">)</span>
+        VALUES
+        <span class="token punctuation">(</span>
+          <span class="token punctuation">:</span>USR_ID
+          <span class="token punctuation">,</span> <span class="token punctuation">:</span>USR_PW
+          <span class="token punctuation">,</span> <span class="token punctuation">:</span>USR_NM
+          <span class="token punctuation">,</span> <span class="token punctuation">:</span>USR_LVL
+        <span class="token punctuation">)</span>
+        '<span class="token string">''</span><span class="token punctuation">;</span>
+
+        <span class="token keyword keyword-var">var</span> LJSON <span class="token operator">:=</span> TJSONObject<span class="token punctuation">.</span>ParseJSONValue<span class="token punctuation">(</span>Req<span class="token punctuation">.</span>Body<span class="token punctuation">)</span> <span class="token operator">as</span> TJSONObject<span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_ID'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> LJSON<span class="token punctuation">.</span>GetValue<span class="token operator">&lt;</span><span class="token keyword keyword-string">string</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">'usr_id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_PW'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> <span class="token string">'1234'</span><span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_NM'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> LJSON<span class="token punctuation">.</span>GetValue<span class="token operator">&lt;</span><span class="token keyword keyword-string">string</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">'usr_nm'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_LVL'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsInteger <span class="token operator">:=</span> LJSON<span class="token punctuation">.</span>GetValue<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">'usr_lvl'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>ExecSQL<span class="token punctuation">;</span>
+        LJSON<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+        Res<span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span>LQuery<span class="token punctuation">.</span>ToJSON<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-finally">finally</span>
+        LQuery<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+        LConnection<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+      <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 수정</span>
+  THorse<span class="token punctuation">.</span>Put<span class="token punctuation">(</span><span class="token string">'/user/:id'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-begin">begin</span>
+      <span class="token keyword keyword-var">var</span> LConnection <span class="token operator">:=</span> TDatabase<span class="token punctuation">.</span>GetConnection<span class="token punctuation">;</span>
+      <span class="token keyword keyword-var">var</span> LQuery <span class="token operator">:=</span> LConnection<span class="token punctuation">.</span>GetQuery<span class="token punctuation">;</span>
+      <span class="token keyword keyword-try">try</span>
+        LQuery<span class="token punctuation">.</span>SQL<span class="token punctuation">.</span>Text <span class="token operator">:=</span> '<span class="token string">''</span>
+        UPDATE USRS
+        <span class="token keyword keyword-SET">SET</span>
+          USR_NM <span class="token operator">=</span> <span class="token punctuation">:</span>USR_NM
+          <span class="token punctuation">,</span> USR_LVL <span class="token operator">=</span> <span class="token punctuation">:</span>USR_LVL
+        WHERE
+          USR_ID <span class="token operator">=</span> <span class="token punctuation">:</span>USR_ID
+        '<span class="token string">''</span><span class="token punctuation">;</span>
+
+        <span class="token keyword keyword-var">var</span> LJSON <span class="token operator">:=</span> TJSONObject<span class="token punctuation">.</span>ParseJSONValue<span class="token punctuation">(</span>Req<span class="token punctuation">.</span>Body<span class="token punctuation">)</span> <span class="token operator">as</span> TJSONObject<span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_ID'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> Req<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_NM'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsString <span class="token operator">:=</span> LJSON<span class="token punctuation">.</span>GetValue<span class="token operator">&lt;</span><span class="token keyword keyword-string">string</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">'usr_nm'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>ParamByName<span class="token punctuation">(</span><span class="token string">'USR_LVL'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>AsInteger <span class="token operator">:=</span> LJSON<span class="token punctuation">.</span>GetValue<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">'usr_lvl'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LQuery<span class="token punctuation">.</span>ExecSQL<span class="token punctuation">;</span>
+        LJSON<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+
+        Res<span class="token punctuation">.</span>ContentType<span class="token punctuation">(</span><span class="token string">'application/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Res<span class="token punctuation">.</span>Send<span class="token punctuation">(</span>LQuery<span class="token punctuation">.</span>ToJSON<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-finally">finally</span>
+        LQuery<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+        LConnection<span class="token punctuation">.</span>Free<span class="token punctuation">;</span>
+      <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 9000번 포트를 리스닝한다</span>
+  THorse<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
+</code></pre><h3 id="5-api-문서화와-테스트"><strong>5. API 문서화와 테스트</strong> </h3>
 <h4 id="51-swagger를-사용해서-문서화-하기">5.1 Swagger를 사용해서 문서화 하기 </h4>
-<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-uses">uses</span>
+<p>SWAGGER의 특징</p>
+<ul>
+<li>API 문서화 자동화<br>
+코드에서 주석이나 어노테이션을 통해 API 문서를 자동으로 생성합니다. 수동으로 문서를 작성하고 업데이트할 필요가 없어 개발 효율성이 높아집니다.</li>
+<li>OpenAPI 사양 준수<br>
+OpenAPI Specification(OAS)를 기반으로 하여 표준화된 방식으로 REST API를 정의하고 문서화합니다.</li>
+<li>인터랙티브 문서<br>
+Swagger UI를 통해 웹 브라우저에서 직접 API를 테스트할 수 있는 대화형 문서를 제공합니다. 실제 API 호출을 해보면서 응답을 확인할 수 있습니다.</li>
+<li>코드 생성<br>
+API 사양서를 기반으로 클라이언트 SDK, 서버 스텁 코드 등을 다양한 프로그래밍 언어로 자동 생성할 수 있습니다.</li>
+<li>API 설계 우선 개발<br>
+코드 작성 전에 API를 먼저 설계하고 문서화하여 팀 간 협업과 API 일관성을 개선할 수 있습니다.</li>
+<li>다양한 도구 지원<br>
+Swagger Editor, Swagger UI, Swagger Codegen 등 다양한 도구들이 API 개발 생명주기 전반을 지원합니다.</li>
+</ul>
+<p>이러한 특징들로 인해 Swagger는 현재 가장 널리 사용되는 API 문서화 및 개발 도구 중 하나가 되었습니다.</p>
+<pre data-role="codeBlock" data-info="pascal" class="language-pascal pascal"><code><span class="token keyword keyword-program">program</span> Middlware05<span class="token punctuation">;</span>
+
+<span class="token directive marco property">{$APPTYPE CONSOLE}</span>
+
+<span class="token keyword keyword-uses">uses</span>
+  System<span class="token punctuation">.</span>SysUtils<span class="token punctuation">,</span>
+  System<span class="token punctuation">.</span>Classes<span class="token punctuation">,</span>
+
   Horse<span class="token punctuation">,</span>
   Horse<span class="token punctuation">.</span>GBSwagger<span class="token punctuation">;</span>
-  
+
 <span class="token keyword keyword-type">type</span>
   TUser <span class="token operator">=</span> <span class="token keyword keyword-class">class</span>
   <span class="token keyword keyword-private">private</span>
-    Fid<span class="token punctuation">:</span> Double<span class="token punctuation">;</span>
-    Fname<span class="token punctuation">:</span> <span class="token keyword keyword-String">String</span><span class="token punctuation">;</span>
-    FlastName<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">;</span>
+    FID<span class="token punctuation">:</span> Double<span class="token punctuation">;</span>
+    FName<span class="token punctuation">:</span> <span class="token keyword keyword-String">String</span><span class="token punctuation">;</span>
+    FLastName<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">;</span>
   <span class="token keyword keyword-public">public</span>
-    <span class="token keyword keyword-property">property</span> id<span class="token punctuation">:</span> Double <span class="token keyword keyword-read">read</span> Fid <span class="token keyword keyword-write">write</span> Fid<span class="token punctuation">;</span>
-    <span class="token keyword keyword-property">property</span> <span class="token keyword keyword-name">name</span><span class="token punctuation">:</span> <span class="token keyword keyword-String">String</span> <span class="token keyword keyword-read">read</span> Fname <span class="token keyword keyword-write">write</span> Fname<span class="token punctuation">;</span>
-    <span class="token keyword keyword-property">property</span> lastName<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span> <span class="token keyword keyword-read">read</span> FlastName <span class="token keyword keyword-write">write</span> FlastName<span class="token punctuation">;</span>
+    <span class="token keyword keyword-property">property</span> ID<span class="token punctuation">:</span> Double <span class="token keyword keyword-read">read</span> FID <span class="token keyword keyword-write">write</span> FID<span class="token punctuation">;</span>
+    <span class="token keyword keyword-property">property</span> <span class="token keyword keyword-Name">Name</span><span class="token punctuation">:</span> <span class="token keyword keyword-String">String</span> <span class="token keyword keyword-read">read</span> FName <span class="token keyword keyword-write">write</span> FName<span class="token punctuation">;</span>
+    <span class="token keyword keyword-property">property</span> LastName<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span> <span class="token keyword keyword-read">read</span> FLastName <span class="token keyword keyword-write">write</span> FLastName<span class="token punctuation">;</span>
   <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
 
   TAPIError <span class="token operator">=</span> <span class="token keyword keyword-class">class</span>
   <span class="token keyword keyword-private">private</span>
-    Ferror<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">;</span>
+    FError<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">;</span>
   <span class="token keyword keyword-public">public</span>
-    <span class="token keyword keyword-property">property</span> error<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span> <span class="token keyword keyword-read">read</span> Ferror <span class="token keyword keyword-write">write</span> Ferror<span class="token punctuation">;</span>
+    <span class="token keyword keyword-property">property</span> Error<span class="token punctuation">:</span> <span class="token keyword keyword-string">string</span> <span class="token keyword keyword-read">read</span> FError <span class="token keyword keyword-write">write</span> FError<span class="token punctuation">;</span>
   <span class="token keyword keyword-end">end</span><span class="token punctuation">;</span>
-  
+
 <span class="token keyword keyword-var">var</span>
-  APP<span class="token punctuation">:</span> THorse<span class="token punctuation">;</span>
-  
+  App<span class="token punctuation">:</span> THorse<span class="token punctuation">;</span>
+
 <span class="token keyword keyword-begin">begin</span>
-  App <span class="token operator">:=</span> THorse<span class="token punctuation">.</span>Create<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  App <span class="token operator">:=</span> THorse<span class="token punctuation">.</span>Create<span class="token punctuation">;</span>
 
   <span class="token comment">// Access http://localhost:9000/swagger/doc/html</span>
-  App<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>HorseSwagger<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-  
-  API<span class="token punctuation">.</span>Get <span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> 
-    <span class="token keyword keyword-procedure">procedure</span> <span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Resp<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span> 
-    <span class="token keyword keyword-begin">begin</span> 
+  App<span class="token punctuation">.</span>Use<span class="token punctuation">(</span>HorseSwagger<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  APP<span class="token punctuation">.</span>Get<span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span><span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Res<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-begin">begin</span>
     <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  
-  API<span class="token punctuation">.</span>Post<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> 
-    <span class="token keyword keyword-procedure">procedure</span> <span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Resp<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span> 
-    <span class="token keyword keyword-begin">begin</span> 
+
+  APP<span class="token punctuation">.</span>Post<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span> <span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Resp<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-begin">begin</span>
     <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  
+
+  APP<span class="token punctuation">.</span>Delete<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-procedure">procedure</span> <span class="token punctuation">(</span>Req<span class="token punctuation">:</span> THorseRequest<span class="token punctuation">;</span> Resp<span class="token punctuation">:</span> THorseResponse<span class="token punctuation">;</span> Next<span class="token punctuation">:</span> TProc<span class="token punctuation">)</span>
+    <span class="token keyword keyword-begin">begin</span>
+    <span class="token keyword keyword-end">end</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
   Swagger
+    <span class="token punctuation">.</span>Info
+      <span class="token punctuation">.</span>Title<span class="token punctuation">(</span><span class="token string">'Database CRUD Sample'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>Description<span class="token punctuation">(</span><span class="token string">'API Horse'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>Contact
+        <span class="token punctuation">.</span><span class="token keyword keyword-Name">Name</span><span class="token punctuation">(</span><span class="token string">'시골프로그래머'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>Email<span class="token punctuation">(</span><span class="token string">'civilian7@email.com'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>URL<span class="token punctuation">(</span><span class="token string">'https://cafe.naver.com/delmadang'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>&amp;End
+    <span class="token punctuation">.</span>&amp;End
     <span class="token punctuation">.</span>BasePath<span class="token punctuation">(</span><span class="token string">'v1'</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span>Path<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span>
       <span class="token punctuation">.</span>Tag<span class="token punctuation">(</span><span class="token string">'User'</span><span class="token punctuation">)</span>
@@ -822,32 +1049,40 @@ PostgreSQL 기본 max_connections = 100</li>
           <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TUser<span class="token punctuation">)</span>
           <span class="token punctuation">.</span>IsArray<span class="token punctuation">(</span><span class="token keyword keyword-True">True</span><span class="token punctuation">)</span>
         <span class="token punctuation">.</span>&amp;End
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'Bad Request'</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TAPIError<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>&amp;End
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> <span class="token string">'Internal Server Error'</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TAPIError<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>&amp;End
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">.</span>&amp;End
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span>&amp;End
       <span class="token punctuation">.</span>&amp;End
       <span class="token punctuation">.</span>POST<span class="token punctuation">(</span><span class="token string">'Add user'</span><span class="token punctuation">,</span> <span class="token string">'Add a new user'</span><span class="token punctuation">)</span>
         <span class="token punctuation">.</span>AddParamBody<span class="token punctuation">(</span><span class="token string">'User data'</span><span class="token punctuation">,</span> <span class="token string">'User data'</span><span class="token punctuation">)</span>
           <span class="token punctuation">.</span>Required<span class="token punctuation">(</span><span class="token keyword keyword-True">True</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TUser<span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span><span class="token string">'string'</span><span class="token punctuation">)</span>
         <span class="token punctuation">.</span>&amp;End
         <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token string">'Created'</span><span class="token punctuation">)</span>
           <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TUser<span class="token punctuation">)</span>
         <span class="token punctuation">.</span>&amp;End
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'Bad Request'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'BadRequest'</span><span class="token punctuation">)</span>
           <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TAPIError<span class="token punctuation">)</span>
         <span class="token punctuation">.</span>&amp;End
-        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> <span class="token string">'Internal Server Error'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span>&amp;End
+      <span class="token punctuation">.</span>&amp;End
+      <span class="token punctuation">.</span>DELETE<span class="token punctuation">(</span><span class="token string">'Delete user'</span><span class="token punctuation">,</span> <span class="token string">'Delete user'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>AddParamQuery<span class="token punctuation">(</span><span class="token string">'userid'</span><span class="token punctuation">,</span> <span class="token string">'User ID'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>Required<span class="token punctuation">(</span><span class="token keyword keyword-True">True</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span><span class="token string">'string'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>&amp;End
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token string">'Deleted'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TUser<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>&amp;End
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'BadRequest'</span><span class="token punctuation">)</span>
           <span class="token punctuation">.</span>Schema<span class="token punctuation">(</span>TAPIError<span class="token punctuation">)</span>
         <span class="token punctuation">.</span>&amp;End
+        <span class="token punctuation">.</span>AddResponse<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span>&amp;End
       <span class="token punctuation">.</span>&amp;End
     <span class="token punctuation">.</span>&amp;End
   <span class="token punctuation">.</span>&amp;End<span class="token punctuation">;</span>
 
-  App<span class="token punctuation">.</span>Start<span class="token punctuation">;</span>
+  <span class="token comment">// 9000번 포트를 리스닝한다</span>
+  App<span class="token punctuation">.</span>Listen<span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-end">end</span><span class="token punctuation">.</span>
 </code></pre>
       </div>
